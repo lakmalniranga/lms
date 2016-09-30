@@ -32,7 +32,7 @@
   cd /var/www/html/project_name && git clone https://github.com/lakmalniranga/lms.git
 ```
   5. Just visit 
- ```bash
+ ```
   http://localhost/project_name
 ```
 
