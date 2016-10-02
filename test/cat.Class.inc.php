@@ -1,0 +1,11 @@
+<?php
+
+/**
+ * CatClass
+ */
+class Cat{
+	
+}
+
+
+?>
