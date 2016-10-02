@@ -11,7 +11,7 @@ $GLOBALS['config'] = array(
     'mysql'     => array(
       'host'      => '127.0.0.1',
       'username'  => 'root',
-      'password'  => '1210ls',
+      'password'  => '1995cd',
       'db'        => 'lms'
     ),
 
@@ -34,3 +34,6 @@ spl_autoload_register(function($class){
 });
 
 require_once 'includes/functions/func.php';
+
+$user = new User();
+$validator = new Validator;
