@@ -29,4 +29,13 @@ if ($config['DEBUG']==1) {
   <![endif]-->
 </head>
 <body>
-  navbar
+  <div id="container">
+    <ul>
+      <li id="lg">Logo</li>
+      <li><a href="#">Box1</a></li>
+      <li><a href="#">Box2</a></li>
+      <li><a href="#">Box3</a></li>
+      <li><a href="#">Box4</a></li>
+      <li><a href="#">Box5</a></li>
+    </ul>
+  </div>
