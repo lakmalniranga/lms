@@ -33,5 +33,6 @@ include_once( dirname(dirname(__FILE__)) .'/classes/config.php');
       <li><a href="#">Box3</a></li>
       <li><a href="#">Box4</a></li>
       <li><a href="#">Box5</a></li>
+      <li><a href="#">Box6</a></li>
     </ul>
   </div>
