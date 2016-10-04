@@ -36,7 +36,27 @@ include_once( dirname(dirname(__FILE__)) .'/classes/config.php');
       </ul>
   </nav>
 
+
   <aside class="sidebar">
+
+    <div id="side">
+    <ul>
+
+      <div id="top">
+          <li id="top2">Menu</li>
+      </div>
+          <li><a href="#">example 1</a></li>
+          <li><a href="#">example 2</a></li>
+          <li><a href="#">example 3</a></li>
+          <li><a href="#">example 4</a></li>
+          <li><a href="#">example 5</a></li>
+          <li><a href="#">example 6</a></li>
+          <li><a href="#">example 7</a></li>
+          <li><a href="#">example 8</a></li>
+          <li><a href="#">example 9</a></li>
+    </ul>
+
+  </div>
 
   </aside>
 
