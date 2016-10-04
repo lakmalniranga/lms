@@ -26,13 +26,18 @@ include_once( dirname(dirname(__FILE__)) .'/classes/config.php');
 </head>
 <body>
   <div id="container">
-    <ul>
-      <li id="lg">Logo</li>
-      <li><a href="#">Box1</a></li>
-      <li><a href="#">Box2</a></li>
-      <li><a href="#">Box3</a></li>
-      <li><a href="#">Box4</a></li>
-      <li><a href="#">Box5</a></li>
-      <li><a href="#">Box6</a></li>
-    </ul>
-  </div>
+  <nav class="navbar">
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#news">News</a></li>
+        <li><a href="#home">Forum</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#about">About</a></li>
+      </ul>
+  </nav>
+
+  <aside class="sidebar">
+
+  </aside>
+
+</div>

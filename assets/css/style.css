@@ -2,34 +2,45 @@ html, body{
   margin: 0;
 }
 
+#container {
+    width: 100%;
+}
+
 /* navbar */
-#container ul{
-  list-style: none;
+
+.navbar {
+  margin: 0 auto;
+  display: block;
+  width: 60%;
 }
 
-#container ul li{
-  background-color: #666;
-  width: 150px;
-  border: 1px solid white;
-  text-align: center;
-  height: 50px;
-  line-height: 50px;
-  float: left;
-  color: white;
-  font-family: sans-serif;
-  font-size: 18px;
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
 }
 
-#container ul li:hover{
-  background-color: black;
+.navbar li a {
+    background-color:#2C001E;
+    width: 180px;
+    text-decoration: none;
+    text-align: center;
+    color:#b9b9b9;
+    font-family: sans-serif;
+    font-size:20px;
+    font-weight: 400;
+    line-height: 50px;
+    float: left;
+    padding: 20px;
 }
 
-ul a{
-  text-decoration: none;
-  color: white;
+.navbar li a:hover {
+    background-color:#561345;
+    color: #77216F;
+    transition: all 1.00s;
 }
 
-ul a:hover{
-  text-decoration: underline;
-  font-size:30px;
+#lg{
+  margin: 0;
+  padding: 0;
 }
