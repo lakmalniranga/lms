@@ -3,41 +3,44 @@
 require_once 'core/init.php';
  
  if (Input::exists()) {
- 	 $validate = new Validate();
- 	 $validation = $validate->check($_POST, array(
- 	 	'username' => array(
- 	 		'required' => true,
- 	 		'min' => 5,
- 	 		'max' => 15,
- 	 		'unique' => 'users'
- 	 	),
- 	 	'email' => array(
- 	 		'required' => true,
- 	 		'email' => true
- 	 	),
- 	 	'name' => array(
- 	 		'required' => true,
- 	 		'min' => 5
- 	 	),
- 	 	'password' => array(
- 	 		'required' => true,
- 	 		'min' => 6
- 	 	),
- 	 	'password_again' => array(
- 	 		'required' => true,
- 	 		'matches' => 'password'
- 	 	)
- 	 ));
+ 	if (Token::check(Input::get('token'))) {
+		$validate = new Validate();
+		$validation = $validate->check($_POST, array(
+			'username' => array(
+				'required' => true,
+				'min' => 5,
+				'max' => 15,
+				'unique' => 'users'
+			),
+			'email' => array(
+				'required' => true,
+				'email' => true
+			),
+			'name' => array(
+				'required' => true,
+				'min' => 5
+			),
+			'password' => array(
+				'required' => true,
+				'min' => 6
+			),
+			'password_again' => array(
+				'required' => true,
+				'matches' => 'password'
+			)
+		));
 
- 	 if ($validation->passed()) {
- 	 	echo "success";
- 	 } else {
- 	 	print_r($validation->errors());
- 	 }
-
+		if ($validation->passed()) {
+			echo "success";
+		} else {
+			print_r($validation->errors());
+		}
+ 	} 	 
  }
 
  ?>
+
+
 
 <form action="" method="POST">
 	<div class="field">
@@ -64,6 +67,7 @@ require_once 'core/init.php';
 		<label for="password_again">Password Again</label>
 		<input type="password" name="password_again" id="password_again" autocomplete="off" value="">
 	</div>
-
+	
+	<input type="hidden" name="token" value="<?php echo Token::generate(); ?>">
 	<input type="submit" value="Register">
 </form>
