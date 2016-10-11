@@ -19,3 +19,5 @@ if ($user->hasPermission('admin')) {
 	echo "</br>You'r admin!";
 }
 // require_once 'student/footer.php';
+
+// testing by usitha
