@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * Manage sessions and flash messages
+ */
 class Session {
 	public static function exists($name) {
 		return (isset($_SESSION[$name])) ? true : false;
@@ -16,6 +19,16 @@ class Session {
 	public static function delete($name) {
 		if (self::exists($name)) {
 			unset($_SESSION[$name]);
+		}
+	}
+
+	public static function flash($name, $msg = '') {
+		if (self::exists($name)) {
+			$session = self::get($name);
+			self::delete($name);
+			return $session;
+		} else {
+			self::put($name, $msg);
 		}
 	}
 }

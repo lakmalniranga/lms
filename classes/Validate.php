@@ -1,8 +1,8 @@
 <?php 
 
 /**
-* Form validation class
-*/
+ * Validate form data
+ */
 class Validate
 {
 	private $_passed = false,

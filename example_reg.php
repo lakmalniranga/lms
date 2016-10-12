@@ -31,9 +31,30 @@ require_once 'core/init.php';
 		));
 
 		if ($validation->passed()) {
-			echo "success";
+			$user = new User();
+			
+			$salt = salt(32);
+
+			try {
+				$user->create(array(
+					'username' => Input::get('username'),
+					'password' => generateHash(Input::get('password'), $salt),
+					'salt' => $salt,
+					'name' => Input::get('name'),
+					'email' => Input::get('email'),
+					'joined' => date('Y-m-d H:i:s'),
+					'role' => 2
+				));
+
+				Session::flash('home', 'User registerd');
+				header('Location: index.php');
+			} catch (Exception $e) {
+				die($e->getMessage());
+			}
 		} else {
-			print_r($validation->errors());
+			foreach ($validation->errors() as $error) {
+				echo $error . "</br>";
+			}
 		}
  	} 	 
  }

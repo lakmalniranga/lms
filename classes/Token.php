@@ -1,5 +1,8 @@
 <?php 
 
+/**
+ * Genarate and check form tokens to prevent CSRF
+ */
 class Token
 {
 	public static function generate() {
