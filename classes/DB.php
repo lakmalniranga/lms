@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * Database Operation
+ */
 class DB
 {
   private static $_instance = null;

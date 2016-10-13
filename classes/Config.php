@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * Return global varible data where stored at init.php
+ */
 class Config {
 
   /**

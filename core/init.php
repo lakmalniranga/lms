@@ -14,7 +14,7 @@ $GLOBALS['config'] = array(
     'mysql'     => array(
       'host'      => '127.0.0.1',
       'username'  => 'root',
-      'password'  => '',
+      'password'  => '1995cd',
       'db'        => 'lms'
     ),
 
@@ -27,7 +27,8 @@ $GLOBALS['config'] = array(
     ),
 
     'session'   => array(
-      'session_name'  => ' user'
+      'session_name'  => 'user',
+      'token_name'  => 'token'
     )
 
 );
@@ -39,7 +40,21 @@ spl_autoload_register(function($class){
 
 require_once 'includes/functions/func.php';
 
+<<<<<<< HEAD
 $user = new User();
 
 $dana = new Person();
 $usi = new newPerson();
+=======
+// $user = new User();
+
+if (Cookie::exists(Config::get('remember/cookie_name')) && !Session::exists(Config::get('session/session_name'))) {
+  $hash = Cookie::get(Config::get('remember/cookie_name'));
+  $hashCheck = DB::getInstance()->get('user_session', array('hash', '=', $hash ));
+
+  if ($hashCheck->count()) {
+    $user = new User($hashCheck->first()->user_id);
+    $user->login();
+  }
+}
+>>>>>>> 96b70dac07173834ba1f0c045d2c15c5c0ac7cff
