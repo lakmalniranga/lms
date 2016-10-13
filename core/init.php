@@ -40,3 +40,6 @@ spl_autoload_register(function($class){
 require_once 'includes/functions/func.php';
 
 $user = new User();
+
+$dana = new Person();
+$usi = new newPerson();

@@ -35,13 +35,11 @@ include_once( dirname(dirname(__FILE__)) .'/classes/config.php');
         <li><a href="#about">About</a></li>
       </ul>
   </nav>
+  </div>
 
-
+  <div id="side">
   <aside class="sidebar">
-
-    <div id="side">
     <ul>
-
       <div id="top">
           <li id="top2">Menu</li>
       </div>
@@ -55,9 +53,6 @@ include_once( dirname(dirname(__FILE__)) .'/classes/config.php');
           <li><a href="#">example 8</a></li>
           <li><a href="#">example 9</a></li>
     </ul>
-
-  </div>
-
   </aside>
 
 </div>
