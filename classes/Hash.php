@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 /**
  * Genarate password hash and salt
@@ -14,6 +14,6 @@ class Hash
 	}
 
 	public static function unique() {
-		return generateHash(uniqid());
+		return self::generateHash(uniqid());
 	}
 }

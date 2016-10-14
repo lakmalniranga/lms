@@ -1,7 +1,7 @@
 <?php
 
 require_once 'core/init.php';
- 
+
  if (Input::exists()) {
  	if (Token::check(Input::get('token'))) {
 		$validate = new Validate();
@@ -32,13 +32,13 @@ require_once 'core/init.php';
 
 		if ($validation->passed()) {
 			$user = new User();
-			
-			$salt = salt(32);
+
+			$salt = Hash::salt(32);
 
 			try {
 				$user->create(array(
 					'username' => Input::get('username'),
-					'password' => generateHash(Input::get('password'), $salt),
+					'password' => Hash::generateHash(Input::get('password'), $salt),
 					'salt' => $salt,
 					'name' => Input::get('name'),
 					'email' => Input::get('email'),
@@ -56,7 +56,7 @@ require_once 'core/init.php';
 				echo $error . "</br>";
 			}
 		}
- 	} 	 
+ 	}
  }
 
  ?>
@@ -88,7 +88,7 @@ require_once 'core/init.php';
 		<label for="password_again">Password Again</label>
 		<input type="password" name="password_again" id="password_again" autocomplete="off" value="">
 	</div>
-	
+
 	<input type="hidden" name="token" value="<?php echo Token::generate(); ?>">
 	<input type="submit" value="Register">
 </form>

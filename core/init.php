@@ -5,7 +5,7 @@ session_start();
 ini_set('display_errors', 'On');
 
 
-define('ROOT', "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
+define('ROOT', "http://$_SERVER[HTTP_HOST]");
 
 $GLOBALS['config'] = array(
     /**
@@ -14,7 +14,7 @@ $GLOBALS['config'] = array(
     'mysql'     => array(
       'host'      => '127.0.0.1',
       'username'  => 'root',
-      'password'  => '1995cd',
+      'password'  => '1210ls',
       'db'        => 'lms'
     ),
 
@@ -40,13 +40,7 @@ spl_autoload_register(function($class){
 
 require_once 'includes/functions/func.php';
 
-<<<<<<< HEAD
 $user = new User();
-
-$dana = new Person();
-$usi = new newPerson();
-=======
-// $user = new User();
 
 if (Cookie::exists(Config::get('remember/cookie_name')) && !Session::exists(Config::get('session/session_name'))) {
   $hash = Cookie::get(Config::get('remember/cookie_name'));
@@ -57,4 +51,3 @@ if (Cookie::exists(Config::get('remember/cookie_name')) && !Session::exists(Conf
     $user->login();
   }
 }
->>>>>>> 96b70dac07173834ba1f0c045d2c15c5c0ac7cff
