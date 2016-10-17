@@ -4,8 +4,7 @@ session_start();
 // debug mode | default : Off
 ini_set('display_errors', 'On');
 
-
-define('ROOT', "http://$_SERVER[HTTP_HOST]");
+define('ROOT', "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
 
 $GLOBALS['config'] = array(
     /**
@@ -14,7 +13,7 @@ $GLOBALS['config'] = array(
     'mysql'     => array(
       'host'      => '127.0.0.1',
       'username'  => 'root',
-      'password'  => '1210ls',
+      'password'  => '',
       'db'        => 'lms'
     ),
 
