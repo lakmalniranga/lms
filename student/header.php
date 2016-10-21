@@ -35,7 +35,7 @@ include_once( dirname(dirname(__FILE__)) .'/classes/Config.php');
           </div>
 
           <div class="column column-4 login-box">
-            <a href="#" class="login-btn">Login</a>
+            <a href="#" class="btn login-btn">Login</a>
           </div>
         </div>
         
@@ -60,7 +60,8 @@ include_once( dirname(dirname(__FILE__)) .'/classes/Config.php');
           </div>
 
           <div class="column column-9 main">
-            Main Content
+            Main Content <br><br>
+            <button class="btn">Test Button</button>
           </div>
         </div>
       </section>

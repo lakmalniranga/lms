@@ -154,6 +154,20 @@ hr.custom-hr:before {
   border-radius: 20px; 
 }
 
+.btn {
+    padding: 12px 30px;
+    background: cornflowerblue;
+    display: inline-block;
+    color: #FFF;
+    text-decoration: none;
+    font-size: 17px;
+    box-shadow: 0 0 2px rgba(0,0,0,0.2);
+    border: none;
+    outline: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+
 /* END CUSTOM STYLES */
 
 .logo {
@@ -209,16 +223,8 @@ section {
 }
 
 .login-box .login-btn {
-    padding: 12px 30px;
-    background: cornflowerblue;
-    display: inline-block;
-    color: #FFF;
-    text-decoration: none;
-    font-size: 17px;
-    cursor: pointer;
     margin-top: 31px;
     margin-right: 40px;
-    box-shadow: 0 0 2px rgba(0,0,0,0.2);
     opacity: 1;
 }
 
