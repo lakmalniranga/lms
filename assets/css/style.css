@@ -1,11 +1,18 @@
 html, body{
   margin: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background-color: #E3E7F0;
 }
 
 .container {
+    background-color: #FFFFFF;
     width: 100%;
-    margin: 0 auto;
+    margin: 15px auto;
     max-width : 1200px; 
+    box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.1);
 }
 
 /* Grid System */
@@ -110,6 +117,10 @@ html, body{
 }
 
 @media only screen and (max-width: 550px) {
+    .container {
+        margin: 0 auto;
+    }
+
     .row {
         margin-bottom: 0;
     }
@@ -123,82 +134,143 @@ html, body{
 
 /* End grid */
 
-/* navbar */
+/* CUSTOM STYLES */
+
+hr.custom-hr { 
+  height: 30px; 
+  border-style: solid; 
+  border-color: #8c8b8b; 
+  border-width: 1px 0 0 0; 
+  border-radius: 20px; 
+} 
+hr.custom-hr:before { 
+  display: block; 
+  content: ""; 
+  height: 30px; 
+  margin-top: -31px; 
+  border-style: solid; 
+  border-color: #8c8b8b; 
+  border-width: 0 0 1px 0; 
+  border-radius: 20px; 
+}
+
+/* END CUSTOM STYLES */
+
+.logo {
+    margin: 10px 25px;
+}
 
 .navbar {
-  margin: 0 auto;
-  display: block;
-  width: 60%;
+    background-color: #f0f0f0;
+    margin-bottom: 15px;
 }
 
 .navbar ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-}
-
-.navbar li a {
-    background-color:#2C001E;
-    width: 180px;
-    text-decoration: none;
-    text-align: center;
-    color:#b9b9b9;
-    font-family: sans-serif;
-    font-size:20px;
-    font-weight: 400;
-    line-height: 50px;
-    float: left;
-    padding: 20px;
-}
-
-.navbar li a:hover {
-    background-color:#561345;
-    color: #77216F;
-    transition: all 1.00s;
-}
-
-#lg{
+  float: left;
+  padding-left: 0px;
+  margin-left: 0px;
   margin: 0;
-  padding: 0;
 }
 
-
-/*sidebar*/
-
-.sidebar ul{
+.navbar ul li {
   list-style: none;
+  float: left;
 }
 
-.sidebar ul a{
-  width: 200px;
-  padding: 30px 10px;
-  display: block;
-  background-color: #2C001E;
-  text-align: center;
-  font-size: 20px;
-  float: none;
-  font-weight: 400;
-  text-decoration: none;
-  color: #b9b9b9;
+.navbar ul li a {
+    text-decoration: none;
+    color: #20589D;
+    font-weight: bold;
+    cursor: pointer;
+    display: inline-block;
+    padding: 12px 25px;
+}
 
+.navbar ul li a:hover {
+    background-color: #FFF;
 }
-.sidebar li a:hover{
-    background-color: #561345;
-    transition: all 0.50s;
-    color:#77216F;
+
+.navbar ul li a:hover {
+    text-shadow: 0 0 3px rgba(0,0,0,.2);
+    cursor: pointer;
 }
-#top {
-  text-align: center;
-  width: 20px
-  padding: 30px 10px;
-  font-size: 25px;
-  float: none;
-  color: black;
+
+section {
+    margin-bottom: 25px;
 }
-#top2 {
-  width: 200px;
-  padding: 10px 10px;
-  display: block;
-  background-color: lightblue;
-  text-align: center;
+
+.sidebar {
+    padding-left: 25px;
 }
+
+.login-box {
+    float: right;
+    text-align: right;
+}
+
+.login-box .login-btn {
+    padding: 12px 30px;
+    background: cornflowerblue;
+    display: inline-block;
+    color: #FFF;
+    text-decoration: none;
+    font-size: 17px;
+    cursor: pointer;
+    margin-top: 31px;
+    margin-right: 40px;
+    box-shadow: 0 0 2px rgba(0,0,0,0.2);
+    opacity: 1;
+}
+
+.login-box .login-btn:hover {
+    opacity: 0.9;
+}
+
+.footer {
+    border-top: 1px solid rgba(0,0,0,.1);
+    padding: 0px 25px;
+}
+
+.footer p {
+    font-size: 13px;
+    color: rgba(0,0,0,.4);
+    line-height: 1.3em;
+}
+
+.footer p a {
+    color: #333;
+    text-decoration: none;
+    opacity: 0.7;
+}
+
+.footer p a:hover {
+    opacity: 0.9;
+}
+
+
+/* MOBILE MEDIA QUERIES */
+@media only screen and (max-width: 550px) {
+    .navbar ul, .sidebar {
+        padding-left: 0px;
+        margin-left: 0px;
+    }
+
+    .logo {
+        display: block;
+        margin: 10px auto;
+    }
+
+    .login-box {
+        float: left;
+        text-align: center;
+        width: 100%;
+    }
+
+    .login-box .login-btn {
+        padding: 12px 0px;
+        width: 100%;
+        margin-right: 0px;
+    }
+}
+
+/* END MEDIA QUERIES */

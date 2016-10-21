@@ -16,8 +16,9 @@ include_once( dirname(dirname(__FILE__)) .'/classes/Config.php');
 
   <title>LMS</title>
   <meta name="Learning Management System">
-  <meta name="author" content="NSBM 16.1 Group 01">
-
+  <meta name="author" content="NSBM 16.1 Group 01"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
   <link rel="stylesheet" href="<?php echo ROOT . "assets/css/style.css"; ?>">
 
   <!--[if lt IE 9]>
@@ -26,49 +27,41 @@ include_once( dirname(dirname(__FILE__)) .'/classes/Config.php');
 </head>
 <body>
   <div class="container">
-<!--   <div class="row">
-    <div class="column column-12">
-      hello
-    </div>
-    <div class="column column-6">
-      SIde1
-    </div>
-    <div class="column column-6">
-      SIde2
-    </div>
-  </div> -->
-
-  <div class="row">
-    <div class="column column-4">
-      <aside class="sidebar">
-        <ul>
-          <div id="top">
-              <li id="top2">Menu</li>
+  
+      <header>
+        <div class="row">
+          <div class="column column-8">
+            <img src="http://nsbm.lk/img/logos/nsbm-logo.png" alt="Logo" class="logo">
           </div>
-              <li><a href="#">example 1</a></li>
-              <li><a href="#">example 2</a></li>
-              <li><a href="#">example 3</a></li>
-              <li><a href="#">example 4</a></li>
-              <li><a href="#">example 5</a></li>
-              <li><a href="#">example 6</a></li>
-              <li><a href="#">example 7</a></li>
-              <li><a href="#">example 8</a></li>
-              <li><a href="#">example 9</a></li>
-        </ul>
-      </aside>
-    </div>
-    
-    <div class="column column-8">
-      <nav class="navbar">
-          <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#news">News</a></li>
-            <li><a href="#home">Forum</a></li>
-            <li><a href="#contact">Contact</a></li>
-            <li><a href="#about">About</a></li>
-          </ul>
-      </nav>
-    </div>
-  </div>
 
-</div>
+          <div class="column column-4 login-box">
+            <a href="#" class="login-btn">Login</a>
+          </div>
+        </div>
+        
+        <div class="row">    
+          <nav class="column column-12 navbar">
+            <ul>
+              <li><a href="#">Home</a></li>
+              <li><a href="#">About</a></li>
+              <li><a href="#">Contact</a></li>
+              <li><a href="#">Chat</a></li>
+            </ul>
+          </nav>
+
+        </div>
+
+      </header>
+      
+      <section>
+        <div class="row">
+          <div class="column column-3 sidebar">
+            Side Bar
+          </div>
+
+          <div class="column column-9 main">
+            Main Content
+          </div>
+        </div>
+      </section>
+      
