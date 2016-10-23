@@ -52,17 +52,19 @@ if (Input::exists()) {
           <form id="loginform" method="post">
             <p>
               <label for="username">Username</label>
-              <input class="inputer" type="text" id="username" value="<?php echo Input::get('username'); ?>" name="username">
+              <input class="text-input" type="text" id="username" value="<?php echo Input::get('username'); ?>" name="username">
             </p>
             <p>
-            <label for="password">Password</label>
-            <input class="inputer" type="password" id="password" name="password">
+              <label for="password">Password</label>
+              <input class="text-input" type="password" id="password" name="password">
             </p>
             <p>
               <input type="checkbox" name="remember"> Remember Me
             </p>
             <input type="hidden" name="token" value="<?php echo Token::generate(); ?>">
-            <p><button class="btn" type="submit">Login</button></p>
+            <p>
+              <button class="btn btn-md btn-blue" type="submit">Login</button>
+            </p>
           </form>
         </div>
       </div>

@@ -38,9 +38,9 @@ require_once 'core/init.php';
           <div class="column column-4 login-box">
             <?php if ($user->isLoggedIn()) : ?>
               <p>Loged as : <?php echo ucfirst($user->data()->username); ?></p>
-              <a href="logout.php" class="btn login-btn">Logout</a>
+              <a href="logout.php" class="btn btn-sm btn-blue">Logout</a>
             <?php else : ?>
-              <a href="login.php" class="btn login-btn">Login</a>
+              <a href="login.php" class="btn btn-sm btn-blue">Login</a>
             <?php endif; ?>
           </div>
         </div>

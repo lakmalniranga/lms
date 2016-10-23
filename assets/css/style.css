@@ -7,6 +7,10 @@ body {
     background-color: #E3E7F0;
 }
 
+a {
+    text-decoration: none;
+}
+
 .container {
     background-color: #FFFFFF;
     width: 100%;
@@ -14,6 +18,24 @@ body {
     max-width : 1300px; 
     box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.1);
 }
+
+/* Colors */
+.red {
+    background: #f44336;
+}
+
+.blue {
+    background: #2196f3;
+}
+
+.green {
+    background: #4caf50;
+}
+
+.teal {
+    background: #009688;
+}
+/* End Colors */
 
 /* Grid System */
 
@@ -37,6 +59,7 @@ body {
     float: left;
     display: block;
 }
+
 .column-1 {
     width: 6.86666666667%;
 }
@@ -155,20 +178,64 @@ hr.custom-hr:before {
 }
 
 .btn {
-    padding: 12px 30px;
-    background: cornflowerblue;
     display: inline-block;
-    color: #FFF;
-    text-decoration: none;
-    font-size: 17px;
-    box-shadow: 0 0 2px rgba(0,0,0,0.2);
-    border: none;
-    outline: none;
-    font-weight: bold;
+    margin-bottom: 0;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
     cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: 1px solid transparent;
+    border-radius: 2px;
 }
 
-.inputer {
+.btn:hover {
+    opacity: 0.9;
+}
+
+.btn-sm{
+    padding: 3px 6px;
+    font-size: 12px;
+}
+
+.btn-md{
+    padding: 6px 12px;
+    font-size: 14px;
+}
+
+.btn-lg{
+    padding: 10px 16px;
+    font-size: 18px;
+}
+
+.btn-red {
+    background: #f44336;
+    color: #fff;
+}
+
+.btn-blue {
+    background: #2196f3;
+    color: #fff;
+}
+
+.btn-green {
+    background: #4caf50;
+    color: #fff;
+}
+
+.btn-teal {
+    background: #009688;
+    color: #fff;
+}
+
+.text-input {
     width: 100%;
     height: 30px;
     border-radius: 3px;
@@ -180,7 +247,7 @@ hr.custom-hr:before {
     box-shadow: 0 0 3px rgba(0,0,0,.5);
 }
 
-.inputer:focus {
+.text-input:focus {
     box-shadow: 0 0 4px cornflowerblue;
 }
 
@@ -250,16 +317,6 @@ section {
     text-align: right;
 }
 
-.login-box .login-btn {
-    margin-top: 31px;
-    margin-right: 40px;
-    opacity: 1;
-}
-
-.login-box .login-btn:hover {
-    opacity: 0.9;
-}
-
 .login-box p {
     float: left;
     margin-top: 45px;
@@ -270,10 +327,6 @@ section {
     margin: 0 auto;
     display: block;
     width: 35%;
-}
-
-.login .btn {
-    width: 100%;
 }
 
 .login label {
@@ -318,12 +371,6 @@ section {
         float: left;
         text-align: center;
         width: 100%;
-    }
-
-    .login-box .login-btn {
-        padding: 12px 0px;
-        width: 100%;
-        margin-right: 0px;
     }
 
     .login-box p {
