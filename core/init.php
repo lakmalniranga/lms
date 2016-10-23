@@ -4,7 +4,14 @@ session_start();
 // debug mode | default : Off
 ini_set('display_errors', 'On');
 
-define('ROOT', "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
+// SET THE FOLDER AS ROOT PATH
+define('PATH', 'lms');
+
+if (PATH == '') {
+  define('ROOT', "http://$_SERVER[HTTP_HOST]/");
+} else {
+  define('ROOT', "http://$_SERVER[HTTP_HOST]/" . PATH . '/');
+}
 
 $GLOBALS['config'] = array(
     /**
