@@ -28,8 +28,9 @@ function errorHandler(form, fields, errorBox) {
 
 
 var loginform = document.getElementById('loginform');
-loginform.onsubmit = function () {
-	errorHandler(loginform, ['username', 'password'], 'errors');
-	return false;
-};
-
+if (!!loginform) {
+	loginform.onsubmit = function () {
+		errorHandler(loginform, ['username', 'password'], 'errors');
+		return false;
+	};
+}

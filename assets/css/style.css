@@ -308,10 +308,6 @@ section {
     margin-bottom: 25px;
 }
 
-.sidebar {
-    padding-left: 25px;
-}
-
 .login-box {
     float: right;
     text-align: right;
@@ -331,6 +327,54 @@ section {
 
 .login label {
     color: rgba(0,0,0,.6);
+}
+
+.sidebar {
+    padding-left: 25px;
+    border-right: 1px solid rgba(0,0,0,0.3);
+    padding-right: 15px;
+}
+
+.sidebar h3 {
+    margin-bottom: -5px;
+    margin-top: 0;
+    background: #f0f0f0;
+    padding: 5px;
+    border-radius: 3px;
+    color: #ff6347;
+}
+
+.sidebar ul.main-menu {
+    list-style: none;
+    padding-left: 10px;
+    line-height: 2em;
+    margin-left: 0px;
+    font-size: 17px;
+}
+
+.sidebar ul.main-menu li {
+    border-bottom: 1px solid rgba(0,0,0,.1);
+    padding: 5px 0px;
+}
+
+.sidebar ul.main-menu li:last-child {
+    border-bottom: none;
+}
+
+.sidebar ul.main-menu li img {
+    vertical-align: middle;
+    margin-right: 10px;
+    opacity: 0.8;
+}
+
+.sidebar ul.main-menu li a {
+    color: teal;
+    cursor: pointer;
+}
+
+.sidebar ul.main-menu li a:hover {
+    text-shadow: 0 0 3px rgba(0,0,0,.3);
+    opacity: 0.9;
 }
 
 .footer {
