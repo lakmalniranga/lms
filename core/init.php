@@ -1,5 +1,6 @@
 <?php
 session_start();
+ob_start();
 
 // debug mode | default : Off
 ini_set('display_errors', 'On');
@@ -46,6 +47,7 @@ spl_autoload_register(function($class){
 
 require_once 'includes/functions/func.php';
 
+$validate = new Validate();
 $user = new User();
 
 if (Cookie::exists(Config::get('remember/cookie_name')) && !Session::exists(Config::get('session/session_name'))) {

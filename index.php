@@ -1,21 +1,18 @@
 <?php
-require_once 'core/init.php';
-
 require_once 'student/header.php';
+?>
 
-require_once 'student/footer.php';
+  <section>
+    <div class="row">
+      <div class="column column-3 sidebar">
+        Side Bar
+      </div>
 
-// if (Session::exists('home')) {
-// 	echo Session::flash('home');
-// }
+      <div class="column column-9 main">
+        Main Content <br><br>
+        <button class="btn">Test Button</button>
+      </div>
+    </div>
+  </section>
 
-// $user = new User();
-
-// if ($user->isLoggedIn()) {
-// 	echo "Logged in as {$user->data()->name} <a href='logout.php'>Logout</a>";
-// 	if ($user->hasPermission('admin')) {
-// 		echo "</br>You'r admin!";
-// 	}
-// } else {
-// 	echo "please <a href='example_login.php'>Login</a> or <a href='example_reg.php'>Register</a></br>";
-// }
+<?php require_once 'student/footer.php' ?>;

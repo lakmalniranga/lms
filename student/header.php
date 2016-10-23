@@ -7,6 +7,7 @@ if(count(get_included_files()) ==1) header("Location: /404.php");
 if(count(get_included_files()) ==1) exit("Page not found");
 
 include_once( dirname(dirname(__FILE__)) .'/classes/Config.php');
+require_once 'core/init.php';
 
 ?>
 
@@ -35,14 +36,19 @@ include_once( dirname(dirname(__FILE__)) .'/classes/Config.php');
           </div>
 
           <div class="column column-4 login-box">
-            <a href="#" class="btn login-btn">Login</a>
+            <?php if ($user->isLoggedIn()) : ?>
+              <p>Loged as : <?php echo ucfirst($user->data()->username); ?></p>
+              <a href="logout.php" class="btn login-btn">Logout</a>
+            <?php else : ?>
+              <a href="login.php" class="btn login-btn">Login</a>
+            <?php endif; ?>
           </div>
         </div>
         
         <div class="row">    
           <nav class="column column-12 navbar">
             <ul>
-              <li><a href="#">Home</a></li>
+              <li><a href="index.php">Home</a></li>
               <li><a href="#">About</a></li>
               <li><a href="#">Contact</a></li>
               <li><a href="#">Chat</a></li>
@@ -53,16 +59,5 @@ include_once( dirname(dirname(__FILE__)) .'/classes/Config.php');
 
       </header>
       
-      <section>
-        <div class="row">
-          <div class="column column-3 sidebar">
-            Side Bar
-          </div>
 
-          <div class="column column-9 main">
-            Main Content <br><br>
-            <button class="btn">Test Button</button>
-          </div>
-        </div>
-      </section>
       

@@ -11,7 +11,7 @@ body {
     background-color: #FFFFFF;
     width: 100%;
     margin: 15px auto;
-    max-width : 1200px; 
+    max-width : 1300px; 
     box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.1);
 }
 
@@ -168,6 +168,34 @@ hr.custom-hr:before {
     cursor: pointer;
 }
 
+.inputer {
+    width: 100%;
+    height: 30px;
+    border-radius: 3px;
+    padding: 5px 10px;
+    font-size: 18px;
+    outline: 0;
+    margin: 10px 0;
+    border: none;
+    box-shadow: 0 0 3px rgba(0,0,0,.5);
+}
+
+.inputer:focus {
+    box-shadow: 0 0 4px cornflowerblue;
+}
+
+.errors {
+    background: #f2dede;
+    color: #333;
+    line-height: 1.3em;
+    border-radius: 3px;
+}
+
+.errors ul {
+    list-style: none;
+    padding: 10px 25px;
+}
+
 /* END CUSTOM STYLES */
 
 .logo {
@@ -232,6 +260,26 @@ section {
     opacity: 0.9;
 }
 
+.login-box p {
+    float: left;
+    margin-top: 45px;
+    margin-left: 60px;
+}
+
+.login {
+    margin: 0 auto;
+    display: block;
+    width: 35%;
+}
+
+.login .btn {
+    width: 100%;
+}
+
+.login label {
+    color: rgba(0,0,0,.6);
+}
+
 .footer {
     border-top: 1px solid rgba(0,0,0,.1);
     padding: 0px 25px;
@@ -276,6 +324,14 @@ section {
         padding: 12px 0px;
         width: 100%;
         margin-right: 0px;
+    }
+
+    .login-box p {
+        display: none;
+    }
+
+    .login {
+        width: 90%;
     }
 }
 
