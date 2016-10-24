@@ -479,6 +479,19 @@ section {
     margin-right: 5px;
 }
 
+.group-title .toggle-icon {
+    float: right;
+}
+
+.group-title .toggle-icon img {
+    height: 20px;
+    cursor: pointer;
+}
+
+.group-content {
+    display: none;
+}
+
 .group-title a .tooltiptext {
     visibility: hidden;
     font-size: 14px;
