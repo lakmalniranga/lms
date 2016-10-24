@@ -1,7 +1,5 @@
 <?php require_once 'student/header.php'; ?>
 
-<?php if (!$user->isLoggedIn()) : Redirect::to(404); endif;  ?>
-
 <div class="column column-8 offset-2 main text-center">
  <section class="main border">
  <h2 class="group-title">Batch Categories</h2>

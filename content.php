@@ -1,7 +1,5 @@
 <?php require_once 'student/header.php'; ?>
 
-<?php if (!$user->isLoggedIn()) : Redirect::to(404); endif;  ?>
-
 <div class="row">
 	<div class="column column-3">
 		<?php require_once 'student/sidebar.php' ?>
