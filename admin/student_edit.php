@@ -62,7 +62,7 @@ if (Input::exists()) {
 
   	<div class="student">
 
-		<h3 class="group-title">Student Register</h3>
+		<h3 class="group-title blue-b">Student Edit</h3>
           
           <div id="errors" class="errors">
             <?php if (!empty($validate->errors())) : ?>

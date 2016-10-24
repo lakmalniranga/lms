@@ -6,22 +6,17 @@
 	</div>
 
 	<div class="column column-9 main">
-	 <h3 class="group-title">Modules
+	 <h3 class="group-title blue-b">Modules
 		<?php if ($user->hasPermission('admin')):?>
 				<a href="#">
-					<i class="fa fa-plus-square-o green-f" aria-hidden="true"></i>
+					<i class="fa fa-plus-square-o white-f" aria-hidden="true"></i>
 					<span class="tooltiptext">Add</span>
 				</a>
 		<?php endif; ?>
 	 </h3>
 	 <section class="main">
 	   <h4>
-	   <a href="content.php">Database Systems</a>
 		<?php if ($user->hasPermission('admin')):?>
-				<a href="#">
-					<i class="fa fa-plus-square-o green-f" aria-hidden="true"></i>
-					<span class="tooltiptext">Add</span>
-				</a>
 				<a href="#">
 					<i class="fa fa-pencil-square-o teal-f" aria-hidden="true"></i>
 					<span class="tooltiptext">Edit</span>
@@ -35,14 +30,10 @@
 					<span class="tooltiptext">Delete</span>
 				</a>
 		<?php endif; ?>
+		<a href="content.php">Database Systems</a>
 	   </h4>
 	   <h4>
-	   	<a href="">OOP Java</a>
 		<?php if ($user->hasPermission('admin')):?>
-				<a href="#">
-					<i class="fa fa-plus-square-o green-f" aria-hidden="true"></i>
-					<span class="tooltiptext">Add</span>
-				</a>
 				<a href="#">
 					<i class="fa fa-pencil-square-o teal-f" aria-hidden="true"></i>
 					<span class="tooltiptext">Edit</span>
@@ -56,10 +47,8 @@
 					<span class="tooltiptext">Delete</span>
 				</a>
 		<?php endif; ?>
+		<a href="">OOP Java</a>
 	   </h4>
-	   <h4><a href="">Virtualization KVM</a></h4>
-	   <h4><a href="">Parreral Computing</a></h4>
-	   <h4><a href="">Machine Learning</a></h4>
 	 </section>
 	</div>
 </div>

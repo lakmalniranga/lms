@@ -23,9 +23,7 @@ if (Input::exists()) {
 
 
 <div class="student">
-	<div class="dash-option">
-		
-	</div>
+<h3 class="group-title blue-b">Student</h3>
 	<div class="column column-12 main margin">
 		<table class="table">
 			<thead>

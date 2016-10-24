@@ -49,7 +49,7 @@
 			} else if ((isset($_GET['notice'])) && isset($_GET['id']) && ($_GET['notice']=='edit')) {
 				require_once 'admin/notice.php';
 			} else{
-				require_once 'admin/details.php';
+				require_once 'admin/dashboard.php';
 			}
 		?>
 	</div>

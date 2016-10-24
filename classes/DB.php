@@ -70,7 +70,7 @@ class DB
     return false;
   }
 
-  public function get($table, $where) {
+  public function get($table, $where=array()) {
     return $this->action('SELECT *', $table, $where);
   }
 
