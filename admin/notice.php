@@ -5,7 +5,8 @@ if (isset($_GET['notice']) && $_GET['notice'] == 'add') {
 	if (Input::exists() && Input::get('note') != '') {
 		if (Token::check(Input::get('token'))) {
 			$notice = escape(Input::get('note'));
-			if ($db->insert('notice', [ 'notice' => $notice, 'default' => 1])) {
+			$title = escape(Input::get('title'));
+			if ($db->insert('notice', [ 'notice' => $notice, 'title' => $title ,'default' => 1])) {
 				Session::flash('notice', 'Added a New Notice');
 				Redirect::to('dashboard.php?notice=view');
 			}		
@@ -15,12 +16,36 @@ if (isset($_GET['notice']) && $_GET['notice'] == 'add') {
 
 <div class="add-form">
 	<h3>Add a Notice</h3>
-	<?php if (Input::exists() && Input::get('note') == '') : ?>
+	<?php if (Input::exists()) { 
+
+		$validation = $validate->check($_POST, [
+			'title'	=> [
+				'required'	=> true,
+			],
+			'note'	=> [
+				'required'	=> true
+			]
+		]);
+	?>
+
 		<div class="errors">
-			<p class="error"><?php echo 'Notice can not be empty.'; ?></p>
+			<ul>
+		<?php 		
+			if (!$validation->passed()) {
+			foreach ($validation->errors() as $error) {
+ 		?>
+			<li><?php echo $error; ?></li>
+
+	<?php 
+		}
+		?>
+		</ul>
 		</div>
-	<?php endif; ?>
+	<?php
+		}
+	} ?>
 	<form method="POST">
+		<p><input type="text" name="title" class="text-input"></p>
 		<p>
 			<textarea name="note" id="notice" class="text-input textarea"></textarea>
 		</p>
@@ -42,7 +67,7 @@ if (isset($_GET['notice']) && $_GET['notice'] == 'add') {
 	<div class="column column-12 main margin dashboard-list">
 		<ul>
 			<?php foreach ($notices as $notice): ?>
-				<li><p class="list-text"><?php echo $notice->notice; ?><p class="action"><a class="btn btn-sm btn-green" href="dashboard.php?notice=edit&id=<?php echo $notice->id; ?>">Edit</a> <a class="btn btn-sm btn-red" href="dashboard.php?notice=delete&id=<?php echo $notice->id; ?>">Delete</a></p></li>
+				<li><p class="list-text"><?php echo $notice->title; ?><p class="action"><a class="btn btn-sm btn-green" href="dashboard.php?notice=edit&id=<?php echo $notice->id; ?>">Edit</a> <a class="btn btn-sm btn-red" href="dashboard.php?notice=delete&id=<?php echo $notice->id; ?>">Delete</a></p></li>
 			<?php endforeach ?>
 		</ul>
 	</div>
@@ -68,38 +93,64 @@ if (isset($_GET['notice']) && $_GET['notice'] == 'add') {
 		Redirect::to('dashboard.php?notice=view');
 	}
 
-	if (Input::exists() && Input::get('note') != '') {
-		if (Token::check(Input::get('token'))) {
-			$id = (int) escape(Input::get('id'));
-			$notice = escape(Input::get('note'));
-
-			if ($user->isLoggedIn() && $user->hasPermission('admin')) {
-				$update = $db->update('notice', $id, [
-					'notice'	=> $notice
-				]);
-
-				if ($update) {
-					Session::flash('notice', 'Noticed Updated Successfully!');
-					Redirect::to('dashboard.php?notice=view');
-				} else {
-					Session::flash('error', 'Something went Wrong!');
-					Redirect::to('dashboard.php?notice=view');
-				}
-			}
-		}
-	}
-	
-
 ?>
 
 <div class="add-form">
-	<h3>Add a Notice</h3>
-	<?php if (Input::exists() && Input::get('note') == '') : ?>
+	<h3>Update a Notice</h3>
+	<?php if (Input::exists()) { 
+
+		$validation = $validate->check($_POST, [
+			'title'	=> [
+				'required'	=> true,
+			],
+			'note'	=> [
+				'required'	=> true
+			]
+		]);
+	?>
+
 		<div class="errors">
-			<p class="error"><?php echo 'Notice can not be empty.'; ?></p>
+			<ul>
+		<?php 		
+			if (!$validation->passed()) {
+			foreach ($validation->errors() as $error) {
+ 		?>
+			<li><?php echo $error; ?></li>
+
+	<?php 
+		}
+		?>
+		</ul>
 		</div>
-	<?php endif; ?>
+	<?php
+		} else {
+		if (Input::exists() && Input::get('note') != '') {
+			if (Token::check(Input::get('token')) && empty($validate->errors())) {
+				$id = (int) escape(Input::get('id'));
+				$notice = escape(Input::get('note'));
+				$title = escape(Input::get('title'));
+
+				if ($user->isLoggedIn() && $user->hasPermission('admin')) {
+					$update = $db->update('notice', $id, [
+						'notice'	=> $notice,
+						'title'		=> $title
+					]);
+
+					if ($update) {
+						Session::flash('notice', 'Noticed Updated Successfully!');
+						Redirect::to('dashboard.php?notice=view');
+					} else {
+						Session::flash('error', 'Something went Wrong!');
+						Redirect::to('dashboard.php?notice=view');
+					}
+				}
+			}
+		}
+	
+		}
+	} ?>
 	<form method="POST">
+		<p><input type="text" name="title" class="text-input" value="<?php echo $note->title; ?>"></p>
 		<p>
 			<textarea name="note" id="notice" class="text-input textarea"><?php echo $note->notice; ?></textarea>
 		</p>
