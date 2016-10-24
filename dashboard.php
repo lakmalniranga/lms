@@ -42,9 +42,13 @@
 			}
 			elseif ((isset($_GET['template'])) && ($_GET['template']=='view')) {
 				require_once 'admin/template.php';
-			}
-			else
-			{
+			} else if ((isset($_GET['notice'])) && ($_GET['notice']=='add')) {
+				require_once 'admin/notice.php';
+			} else if ((isset($_GET['notice'])) && isset($_GET['id']) && ($_GET['notice']=='delete')) {
+				require_once 'admin/notice.php';
+			} else if ((isset($_GET['notice'])) && isset($_GET['id']) && ($_GET['notice']=='edit')) {
+				require_once 'admin/notice.php';
+			} else{
 				require_once 'admin/details.php';
 			}
 		?>

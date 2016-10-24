@@ -380,11 +380,19 @@ hr.custom-hr:before {
     box-shadow: 0 0 4px cornflowerblue;
 }
 
+.textarea {
+    height: 200px;
+}
+
 .errors {
     background: #f2dede;
     color: #333;
     line-height: 1.3em;
     border-radius: 3px;
+}
+
+.errors .error {
+    padding: 7px;
 }
 
 .errors ul {
@@ -610,6 +618,37 @@ h2.group-title {
 
 .main-menu {
     list-style: none !important;
+}
+
+.add-form {
+    width: 90%;
+    display: block;
+    margin: 0 auto;
+}
+
+.dashboard-list ul {
+    list-style: none;
+}
+
+.dashboard-list ul li {
+    box-shadow: 0 0 3px #f0f0f0;
+    clear: both;
+    overflow: hidden;
+    background: #f0f0f0;
+    margin-bottom: 5px;
+}
+
+.dashboard-list ul li p.list-text {
+    float: left;
+    padding-bottom: 0;
+    padding-left: 15px;
+    margin-bottom: 0;
+    margin-top: 22px;
+}
+
+.dashboard-list ul li p.action {
+    float: right;
+    padding-right: 15px;
 }
 
 .sidebar ul.main-menu {
