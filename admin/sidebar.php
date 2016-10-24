@@ -2,8 +2,8 @@
 	<h3 class="group-title">User Managment</h3>
 	<ul class="main-menu">
 		<li><img src="<?php echo ROOT . 'assets/images/menu-icon.png'; ?>"><a href="dashboard.php?student=view">Student</a></li>
-		<li><img src="<?php echo ROOT . 'assets/images/menu-icon.png'; ?>"><a href="#">Teacher</a></li>
-		<li><img src="<?php echo ROOT . 'assets/images/menu-icon.png'; ?>"><a href="#">Administrator</a></li>
+		<li><img src="<?php echo ROOT . 'assets/images/menu-icon.png'; ?>"><a href="dashboard.php?teacher=view">Teacher</a></li>
+		<li><img src="<?php echo ROOT . 'assets/images/menu-icon.png'; ?>"><a href="dashboard.php?admin=view">Administrator</a></li>
 	</ul>
 </aside>
 

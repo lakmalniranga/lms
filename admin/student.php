@@ -1,52 +1,80 @@
+<?php
+
+if (Input::exists()) {
+  if (Token::check(Input::get('token'))) {
+	    $validation = $validate->check($_POST, array(
+	      'checkbox' => array(
+	      		'required' => true
+	      	)
+	    ));
+
+    	if ($validation->passed()) {
+	    	foreach (array_values(Input::get('checkbox')) as $value) {
+	    		$u = DB::getInstance()->delete('users', array('id', '=', $value));
+	    	}
+
+	  
+		} else {
+			echo "failed";
+		}
+ 	}
+}
+?>
+
+
 <div class="student">
 	<div class="dash-option">
-		<a href="#" class="btn btn-md btn-blue">Add</a>
-		<a href="#" class="btn btn-md btn-blue">Bulk Add</a>
+		
 	</div>
 	<div class="column column-12 main margin">
 		<table class="table">
 			<thead>
-				<th><input type="checkbox" id="chkboxall"></th>
+				<th>#</th>
 				<th>Username</th>
 				<th>Name</th>
 				<th>Faculty</th>
 				<th>Course</th>
 				<th>Contact</th>
+				<th></th>
 			</thead>
 			<tbody>
-			<tr>
-				<td><input type="checkbox" id=""></td>
-				<td>com-16.1-029</td>
-				<td>Dharmasena KDMLN</td>
-				<td>Computing</td>
-				<td>BSc Software Enginering</td>
-				<td>
-					<a href="#">
-						<i class="fa fa-envelope-o" aria-hidden="true"></i>
-					</a>
-					<a href="#">
-						<i class="fa fa-mobile" aria-hidden="true"></i>
-						<span class="tooltiptext">071-1071851</span>
-					</a> 
-				</td>
-			</tr>
-			<tr>
-				<td><input type="checkbox" id=""></td>
-				<td>com-16.1-029</td>
-				<td>Dharmasena KDMLN</td>
-				<td>Computing</td>
-				<td>BSc Software Enginering</td>
-				<td>
-					<i class="fa fa-envelope-o" aria-hidden="true"></i> 
-					<i class="fa fa-mobile" aria-hidden="true"></i>
-				</td>
-			</tr>
+			<form method="post">
+			<?php $u = DB::getInstance()->get('users', array('role', '=', '1'));	?>
+				<?php if ($u->count() > 0): ?>
+		  			<?php foreach ($u->limitTo(10) as $user): ?>
+						<tr>
+							<td><input type="checkbox" name="checkbox[]" value="<?php echo $user->id; ?>" id="<?php echo $user->id; ?>"></td>
+							<td><?php echo $user->username; ?></td>
+							<td><?php echo $user->name; ?></td>
+							<td>Computing</td>
+							<td>BSc Software Enginering</td>
+							<td>
+								<a href="mailto:<?php echo $user->email; ?>">
+									<i class="fa fa-envelope-o" aria-hidden="true"></i>
+								</a>
+								<a href="#">
+									<i class="fa fa-mobile" aria-hidden="true"></i>
+									<span class="tooltiptext"><?php echo $user->mobile; ?></span>
+								</a> 
+							</td>
+							<td><a href="dashboard.php?student=edit&id=<?php echo $user->id; ?>" class="btn btn-md btn-teal">Edit</a></td>
+						</tr>
+					<?php endforeach; ?>
+				<?php else: ?>
+		  			<tr><td colspan="6"><?php echo 'No Result Found'; ?></td></tr>
+			<?php endif; ?>
 			</tbody>
 		</table>
 	</div>
 
+	<input type="hidden" name="token" value="<?php echo Token::generate(); ?>">
+
 	<div class="dash-option">
-		<a href="#" class="btn btn-md btn-teal">Edit</a>
-		<a href="#" class="btn btn-md btn-red">Delete</a>
+		<a onclick="selectall()" class="btn btn-md btn-green">Select All</a>
+		<a onclick="selectnone()" class="btn btn-md btn-green">Select None</a>
+		<button type="submit" class="btn btn-md btn-red">Delete</button>
+		<a href="dashboard.php?student=add" class="btn btn-md btn-blue">Add</a>
 	</div>
+
+	</form>
 </div>
