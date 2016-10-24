@@ -36,8 +36,9 @@ if (Input::exists()) {
 
   <section>
     <div class="row">
-      <div class="column column-12">
-        <div class="login">
+      <div class="column column-4 offset-4 main border">
+      <h2 class="group-title text-center">Student Login</h2>
+        <section class="login">
           
           <div id="errors" class="errors">
             <?php if (!empty($validate->errors())) : ?>
@@ -66,7 +67,8 @@ if (Input::exists()) {
               <button class="btn btn-md btn-blue" type="submit">Login</button>
             </p>
           </form>
-        </div>
+
+        </section>
       </div>
     </div>
   </section>
