@@ -71,10 +71,11 @@ require_once 'core/init.php';
                         TEACHER
                       </a>
                     </li>
+                  <?php else: Redirect::to('index.php'); ?>
                   <?php endif; ?>
 
                 <?php else: ?>
-                  <li class="right"><a href="login.php">LOGIN</i></a></li>
+                  <?php Redirect::to('index.php');  ?>
               <?php endif; ?>
             </ul>
           </nav>
