@@ -11,12 +11,30 @@ a {
     text-decoration: none;
 }
 
+h3 > a {
+    color: #2196f3;
+}
+
+h4 > a {
+    color: #2196f3;
+}
+
 .container {
     background-color: #FFFFFF;
     width: 100%;
     margin: 15px auto;
     max-width : 1300px; 
     box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.1);
+}
+
+.main {
+    margin: 5px;
+    padding: 15px;
+}
+
+.border {
+    border: 1px solid #2196f3;
+    border-radius: 5px;
 }
 
 /* Colors */
@@ -109,6 +127,55 @@ a {
     margin-left: 0;
 }
 
+.offset-1 {
+    margin-left: 6.86666666667%;
+}
+
+.offset-2 {
+    margin-left: 15.3333333333%;
+}
+
+.offset-3 {
+    margin-left: 23.8%;
+}
+
+.offset-4 {
+    margin-left: 32.2666666667%;
+}
+
+.offset-5 {
+    margin-left: 40.7333333333%;
+}
+
+.offset-6 {
+    margin-left: 49.2%;
+}
+
+.offset-7 {
+    margin-left: 57.6666666667%;
+}
+
+.offset-8 {
+    margin-left: 66.1333333333%;
+}
+
+.offset-9 {
+    margin-left: 74.6%;
+}
+
+.offset-10 {
+    margin-left: 83.0666666667%;
+}
+
+.offset-11 {
+    margin-left: 91.5333333333%;
+}
+
+.offset-12 {
+    margin-left: 100%;
+    margin-left: 0;
+}
+
 @media only screen and (max-width: 550px) {
     .column-1, 
     .column-2, 
@@ -175,6 +242,10 @@ hr.custom-hr:before {
   border-color: #8c8b8b; 
   border-width: 0 0 1px 0; 
   border-radius: 20px; 
+}
+
+.text-center{
+    text-align: center;
 }
 
 .btn {
@@ -275,7 +346,6 @@ hr.custom-hr:before {
 }
 
 .navbar ul {
-  float: left;
   padding-left: 0px;
   margin-left: 0px;
   margin: 0;
@@ -286,10 +356,14 @@ hr.custom-hr:before {
   float: left;
 }
 
+.navbar ul li.right {
+  list-style: none;
+  float: right;
+}
+
 .navbar ul li a {
     text-decoration: none;
-    color: #20589D;
-    font-weight: bold;
+    color: #2196f3;
     cursor: pointer;
     display: inline-block;
     padding: 12px 25px;
@@ -310,17 +384,6 @@ section {
 
 .sidebar {
     padding-left: 25px;
-}
-
-.login-box {
-    float: right;
-    text-align: right;
-}
-
-.login-box p {
-    float: left;
-    margin-top: 45px;
-    margin-left: 60px;
 }
 
 .login {
@@ -365,16 +428,6 @@ section {
     .logo {
         display: block;
         margin: 10px auto;
-    }
-
-    .login-box {
-        float: left;
-        text-align: center;
-        width: 100%;
-    }
-
-    .login-box p {
-        display: none;
     }
 
     .login {

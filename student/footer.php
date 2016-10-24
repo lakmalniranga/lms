@@ -1,6 +1,6 @@
 	<div class="row">
 		<div class="column column-12">
-			<footer class="footer">
+			<footer class="footer text-center">
 			<p>Copyright © 2016 <a href="http://nsbm.lk">National School of Business Management</a>. All Rights Reserved.</p>
 			</footer>
 		</div>

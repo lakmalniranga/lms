@@ -35,13 +35,8 @@ require_once 'core/init.php';
             <img src="http://nsbm.lk/img/logos/nsbm-logo.png" alt="Logo" class="logo">
           </div>
 
-          <div class="column column-4 login-box">
-            <?php if ($user->isLoggedIn()) : ?>
-              <p>Loged as : <?php echo ucfirst($user->data()->username); ?></p>
-              <a href="logout.php" class="btn btn-sm btn-blue">Logout</a>
-            <?php else : ?>
-              <a href="login.php" class="btn btn-sm btn-blue">Login</a>
-            <?php endif; ?>
+          <div class="column column-4">
+            
           </div>
         </div>
         
@@ -52,6 +47,13 @@ require_once 'core/init.php';
               <li><a href="#">About</a></li>
               <li><a href="#">Contact</a></li>
               <li><a href="#">Chat</a></li>
+
+              <?php if ($user->isLoggedIn()) : ?>
+                <li class="right"><a href="logout.php">Logout</a></li>
+                <li class="right"><a href="#">My Profile</a></li>
+              <?php else : ?>
+                <li class="right"><a href="login.php">Login</a></li>
+              <?php endif; ?>
             </ul>
           </nav>
 
