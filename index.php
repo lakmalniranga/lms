@@ -4,30 +4,36 @@
 <div class="column column-8 offset-2 main text-center">
  <h2 class="group-title blue">Course Categories</h2>
  <section class="main border">
-   <h3 class="group-title">School of computing</h3>
-   <h4><a href="category.php">Plymouth Newtorking</a></h4>
-   <h4><a href="">Plymouth Software Enginering</a></h4>
-   <h4><a href="">Plymouth Computer Security</a></h4>
-   <h4><a href="">Managment Informatoion Technology BSC hons</a></h4>
-   <h4><a href="">Computer Seience</a></h4>
+   <h3 class="group-title">School of computing <span class="toggle-icon"><img data-id="1" id="toggle-icon" src="<?php echo ROOT . "assets/images/toggle-plus.png"; ?>"></span></h3>
+   <div class="group-content">
+     <h4><a href="category.php">Plymouth Newtorking</a></h4>
+     <h4><a href="">Plymouth Software Enginering</a></h4>
+     <h4><a href="">Plymouth Computer Security</a></h4>
+     <h4><a href="">Managment Informatoion Technology BSC hons</a></h4>
+     <h4><a href="">Computer Seience</a></h4>
+   </div>
  </section>
 
  <section class="main border">
-   <h3 class="group-title">School of Managment</h3>
-   <h4><a href="">Plymouth Newtorking</a></h4>
-   <h4><a href="">Plymouth Software Enginering</a></h4>
-   <h4><a href="">Plymouth Computer Security</a></h4>
-   <h4><a href="">Managment Informatoion Technology BSC hons</a></h4>
-   <h4><a href="">Computer Seience</a></h4>
+   <h3 class="group-title">School of Managment <span class="toggle-icon"><img data-id="2" id="toggle-icon" src="<?php echo ROOT . "assets/images/toggle-plus.png"; ?>"></span></h3>
+   <div class="group-content">
+     <h4><a href="">Plymouth Newtorking</a></h4>
+     <h4><a href="">Plymouth Software Enginering</a></h4>
+     <h4><a href="">Plymouth Computer Security</a></h4>
+     <h4><a href="">Managment Informatoion Technology BSC hons</a></h4>
+     <h4><a href="">Computer Seience</a></h4>
+   </div>
  </section>
 
  <section class="main border">
-   <h3 class="group-title">School of Enginering</h3>
-   <h4><a href="">Plymouth Newtorking</a></h4>
-   <h4><a href="">Plymouth Software Enginering</a></h4>
-   <h4><a href="">Plymouth Computer Security</a></h4>
-   <h4><a href="">Managment Informatoion Technology BSC hons</a></h4>
-   <h4><a href="">Computer Seience</a></h4>
+   <h3 class="group-title">School of Enginering <span class="toggle-icon"><img data-id="3" id="toggle-icon" src="<?php echo ROOT . "assets/images/toggle-plus.png"; ?>"></span></h3>
+   <div class="group-content">
+     <h4><a href="">Plymouth Newtorking</a></h4>
+     <h4><a href="">Plymouth Software Enginering</a></h4>
+     <h4><a href="">Plymouth Computer Security</a></h4>
+     <h4><a href="">Managment Informatoion Technology BSC hons</a></h4>
+     <h4><a href="">Computer Seience</a></h4>
+   </div>
  </section>
 </div>
 <?php endif; ?>
