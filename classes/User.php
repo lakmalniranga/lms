@@ -104,7 +104,7 @@ class User
 
 		if ($roles->count()) {
 			$permissions = json_decode($roles->first()->permissions, true);
-			if ($permissions[$key] == true) {
+			if (array_key_exists($key, $permissions) && $permissions[$key] == true) {
 					return true;
 				}	
 		}

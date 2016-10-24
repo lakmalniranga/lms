@@ -36,18 +36,18 @@
  <h2 class="group-title">News and Notice</h2>
  <section class="main border">
   <h3 class="group-title">Internship opportunity-Video Production and Editing</h3>
-  <p>Applications are called for 3 Months internship in Video Production Editing.
+  <p class="side-padding">Applications are called for 3 Months internship in Video Production Editing.
   Interested students are requested to forward a CV to uditha.g@sliit.lk on or before 20th October 2016.</p>
  </section>
 
  <section class="main border">
   <h3 class="group-title">No Lectures</h3>
-  <p>Please consider, there's no leactures in 2016.02.12 for the computing school</p>
+  <p class="side-padding">Please consider, there's no leactures in 2016.02.12 for the computing school</p>
  </section>
 
  <section class="main border">
   <h3 class="group-title">Internship opportunity-Video Production and Editing</h3>
-  <p>Applications are called for 3 Months internship in Video Production Editing.
+  <p class="side-padding">Applications are called for 3 Months internship in Video Production Editing.
   Interested students are requested to forward a CV to uditha.g@sliit.lk on or before 20th October 2016.</p>
  </section>
 </div>

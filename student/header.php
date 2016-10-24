@@ -19,7 +19,6 @@ require_once 'core/init.php';
   <meta name="Learning Management System">
   <meta name="author" content="NSBM 16.1 Group 01"> 
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
   
