@@ -39,6 +39,12 @@ class User
 		}
 	}
 
+	public function update($id, $fields = array()) {
+		if (!$this->_db->update('users', $id, $fields)) {
+			throw new Exception('Error Updating User');
+		}
+	}
+
 	public function find($user = null) {
 		if($user){
 			$field = (is_numeric($user)) ? 'id' : 'username';

@@ -62,7 +62,6 @@ class DB
 
       if (in_array($operator, $operators)) {
         $sql = "{$action} FROM {$table} WHERE {$field} {$operator} ?";
-
         if (!$this->query($sql, array($value))->error()) {
           return $this;
         }
@@ -71,7 +70,7 @@ class DB
     return false;
   }
 
-  public function get($table, $where) {
+  public function get($table, $where=array()) {
     return $this->action('SELECT *', $table, $where);
   }
 

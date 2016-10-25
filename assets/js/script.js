@@ -34,3 +34,18 @@ if (!!loginform) {
 		return false;
 	};
 }
+
+
+var toggleIcons = document.querySelectorAll('#toggle-icon');
+var groupContents = document.querySelectorAll('.group-content');
+
+for (var i = 0; i < toggleIcons.length; i++) {
+	toggleIcons[i].onclick = function () {
+		var display = groupContents[this.dataset.id - 1].style.display;
+		if (display == 'block') {
+			groupContents[this.dataset.id - 1].style.display = 'none';
+		} else {
+			groupContents[this.dataset.id - 1].style.display = 'block';
+		}
+	};
+}
