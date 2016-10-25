@@ -54,7 +54,16 @@
 				require_once 'admin/module.php';
 			} else if (((isset($_GET['module'])) && isset($_GET['id']) && ($_GET['module']=='edit'))) {
 				require_once 'admin/module.php';
-			} elseif ((isset($_GET['notice'])) && ($_GET['notice']=='view')) {
+			} elseif ((isset($_GET['sub_module'])) && ($_GET['sub_module']=='view')) {
+				require_once 'admin/sub_module.php';
+			} else if ((isset($_GET['sub_module'])) && ($_GET['sub_module']=='add')) {
+				require_once 'admin/sub_module.php';
+			} else if (((isset($_GET['sub_module'])) && isset($_GET['id']) && ($_GET['sub_module']=='delete'))) {
+				require_once 'admin/sub_module.php';
+			} else if (((isset($_GET['sub_module'])) && isset($_GET['id']) && ($_GET['sub_module']=='edit'))) {
+				require_once 'admin/sub_module.php';
+			} 
+			elseif ((isset($_GET['notice'])) && ($_GET['notice']=='view')) {
 				require_once 'admin/notice.php';
 			}
 			elseif ((isset($_GET['backup'])) && ($_GET['backup']=='view')) {

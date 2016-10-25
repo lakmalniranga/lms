@@ -682,6 +682,274 @@ class Controller {
 		}
 	}
 
+	public function subModuleView() {
+		$result = '';
+		$data = $this->db->query("SELECT * FROM sub_module")->results();
+
+		$result .= '<div class="student">
+				<div class="dash-option">
+					<a href="dashboard.php?sub_module=add" class="btn btn-md btn-blue">Add Sub Module</a>
+				</div>';
+
+		if ($this->db->count()) {
+			$result .= 
+				'<div class="column column-12 main margin dashboard-list">
+					<ul>';
+
+			foreach ($data as $d) {
+				$m = $this->db->get('module', ['id', '=', $d->module_id])->first()->name;
+				$result .= '<li><p class="list-text"><b>'. $d->name .'</b> - '. $m .'<p class="action"><a class="btn btn-sm btn-green" href="dashboard.php?sub_module=edit&id='. $d->id .'">Edit</a> <a class="btn btn-sm btn-red" href="dashboard.php?sub_module=delete&id='. $d->id .'">Delete</a></p></li>';
+			}
+			
+			$result .= '				
+					</ul>
+				</div>';
+		}
+
+		$result .= '</div>';
+
+
+		return $result;
+	}
+
+	public function subModuleAddForm() {
+		$errors = '';
+		if (Input::exists()) {
+			if (Token::check(Input::get('token'))) {
+				$validation = $this->validate->check($_POST, [
+					'name'	=> [
+						'required'	=> true
+					],
+					'public'	=> [
+						'required'	=> true
+					],
+					'publish'	=> [
+						'required'	=> true
+					],
+					'description'	=> [
+						'required'	=> true
+					],
+					'module'	=> [
+						'required'	=> true
+					]
+				]);
+
+				if (!$validation->passed()) {
+					$errors = $this->showErrors($validation->errors());
+				} else {
+					if((!empty($_FILES["file"])) && ($_FILES['file']['error'] == 0)) {
+						$filename = basename($_FILES['file']['name']);
+						$ext = substr($filename, strrpos($filename, '.') + 1);
+						if (($ext == "jpg") && ($_FILES["file"]["type"] == "image/jpeg")) {
+							$name = escape(Input::get('name'));
+							$description = escape(Input::get('description'));
+							$module = (int) Input::get('module');
+							$public = (int) Input::get('public');
+							$publish = (int) Input::get('publish');
+
+							$str = uniqid();
+							$filename = $str . '_' . $filename;
+							$newname =  dirname(dirname(__FILE__)).'/upload/'.$filename;
+
+							if ((move_uploaded_file($_FILES['file']['tmp_name'],$newname))) {
+
+								if ($this->db->insert('sub_module', ['name'	=> $name, 'description'	=> $description, 'module_id'	=> $module, 'public'	=> $public, 'publish'	=> $publish, 'file' => $filename])) {
+									Session::flash('home', 'Module added successfully!');
+									Redirect::to('dashboard.php?sub_module=view');
+								} else {
+									Session::flash('error', 'Something went wrong!');
+									Redirect::to('dashboard.php?sub_module=view');
+								}
+							}
+						} else {
+							$validate->addError('Upload file error');
+						}
+					}
+					
+				}
+
+			}
+		}
+
+		$result = '';
+
+		$result .= '<div class="add-form">
+			<h3>Add Module Data</h3>';
+
+		$result .= $errors;
+
+		$result .=	'<form method="post" enctype="multipart/form-data">
+				<p><input type="text" name="name" class="text-input" placeholder="Module Name"></p>
+				<p><textarea name="description" class="text-input textarea" placeholder="Description"></textarea></p>
+				';
+					
+		$result .= 	'
+					<p>
+						Module : <select name="module">';
+
+				foreach ($this->get('module') as $module) {
+					$b = $this->db->get('batch', ['id', '=', $module->batch_id])->first()->name;
+					$c = $this->db->get('course', ['id', '=', $module->course_id])->first()->name;
+					$result .= '<option value="'. $module->id .'">'. $module->name .' - '. $b .' - '. $c .'</option>';
+				}
+
+		$result .=	'</select>
+					</p>
+				<p>
+					Publish : <select name="publish">
+						<option value="1">Yes</option>
+						<option value="1">No</option>
+					</select>
+				</p>
+				<p>
+					Public : <select name="public">
+						<option value="1">Yes</option>
+						<option value="1">No</option>
+					</select>
+				</p>
+				<p>Document : <input type="file" name="file"></p>
+				<input type="hidden" name="token" value='. Token::generate() .'>
+				<p><button class="btn btn-blue btn-lg">Add Module Data</button></p>
+			</form>
+		';
+
+		$result .= '</div>';
+
+		return $result;
+	}
+
+	public function subModuleEditForm($id) {
+		$data = $this->db->get('sub_module', ['id', '=', $id])->first();
+		$errors = '';
+		if (Input::exists()) {
+			if (Token::check(Input::get('token'))) {
+				$validation = $this->validate->check($_POST, [
+					'name'	=> [
+						'required'	=> true
+					],
+					'public'	=> [
+						'required'	=> true
+					],
+					'publish'	=> [
+						'required'	=> true
+					],
+					'description'	=> [
+						'required'	=> true
+					],
+					'module'	=> [
+						'required'	=> true
+					]
+				]);
+
+				if (!$validation->passed()) {
+					$errors = $this->showErrors($validation->errors());
+				} else {
+					if((!empty($_FILES["file"])) && ($_FILES['file']['error'] == 0)) {
+						$filename = basename($_FILES['file']['name']);
+						$ext = substr($filename, strrpos($filename, '.') + 1);
+						if (($ext == "jpg") && ($_FILES["file"]["type"] == "image/jpeg")) {
+							$name = escape(Input::get('name'));
+							$description = escape(Input::get('description'));
+							$module = (int) Input::get('module');
+							$public = (int) Input::get('public');
+							$publish = (int) Input::get('publish');
+
+							$str = uniqid();
+							$filename = $str . '_' . $filename;
+							$newname =  dirname(dirname(__FILE__)).'/upload/'.$filename;
+
+							if ((move_uploaded_file($_FILES['file']['tmp_name'],$newname))) {
+
+								if ($this->db->update('sub_module', $id, ['name'	=> $name, 'description'	=> $description, 'module_id'	=> $module, 'public'	=> $public, 'publish'	=> $publish, 'file' => $filename])) {
+									Session::flash('home', 'Module added successfully!');
+									Redirect::to('dashboard.php?sub_module=view');
+								} else {
+									Session::flash('error', 'Something went wrong!');
+									Redirect::to('dashboard.php?sub_module=view');
+								}
+							}
+						} else {
+							$this->validate->addError('Upload file error');
+							$errors = $this->showErrors($validation->errors());
+						}
+					} else {
+						$name = escape(Input::get('name'));
+						$description = escape(Input::get('description'));
+						$module = (int) Input::get('module');
+						$public = (int) Input::get('public');
+						$publish = (int) Input::get('publish');
+
+						if ($this->db->update('sub_module', $id, ['name'	=> $name, 'description'	=> $description, 'module_id'	=> $module, 'public'	=> $public, 'publish'	=> $publish])) {
+							Session::flash('home', 'Module added successfully!');
+							Redirect::to('dashboard.php?sub_module=view');
+						} else {
+							Session::flash('error', 'Something went wrong!');
+							Redirect::to('dashboard.php?sub_module=view');
+						}
+					}
+					
+				}
+
+			}
+		}
+
+		$result = '';
+
+		$result .= '<div class="add-form">
+			<h3>Update Module Data</h3>';
+
+		$result .= $errors;
+
+		$result .=	'<form method="post" enctype="multipart/form-data">
+				<p><input type="text" name="name" class="text-input" placeholder="Module Name" value="'. $data->name .'"></p>
+				<p><textarea name="description" class="text-input textarea" placeholder="Description">'. $data->description .'</textarea></p>
+				';
+					
+		$result .= 	'
+					<p>
+						Module : <select name="module">';
+
+				foreach ($this->get('module') as $module) {
+					$b = $this->db->get('batch', ['id', '=', $module->batch_id])->first()->name;
+					$c = $this->db->get('course', ['id', '=', $module->course_id])->first()->name;
+					$result .= '<option value="'. $module->id .'">'. $module->name .' - '. $b .' - '. $c .'</option>';
+				}
+
+		$result .=	'</select>
+					</p>
+				<p>
+					Publish : <select name="publish">
+						<option value="1">Yes</option>
+						<option value="1">No</option>
+					</select>
+				</p>
+				<p>
+					Public : <select name="public">
+						<option value="1">Yes</option>
+						<option value="1">No</option>
+					</select>
+				</p>
+				<p>Document : <input type="file" name="file"></p>
+				<input type="hidden" name="token" value='. Token::generate() .'>
+				<p><button class="btn btn-blue btn-lg">Update Module Data</button></p>
+			</form>
+		';
+
+		$result .= '</div>';
+
+		return $result;
+	}
+
+	public function subModuleDelete($id) {
+		if ($this->db->delete('sub_module', ['id', '=', $id])) {
+			Session::flash('home', 'Sub Module deleted successfully!');
+			Redirect::to('dashboard.php?sub_module=view');
+		} else {
+			Session::flash('error', 'Something went Wrong!');
+			Redirect::to('dashboard.php?sub_module=view');
+		}
+	}
+
 	public function get($table) {
 		$data = $this->db->query("SELECT * FROM $table");
 		if ($data) {
