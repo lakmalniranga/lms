@@ -6,7 +6,10 @@ ob_start();
 ini_set('display_errors', 'Off');
 
 // SET THE FOLDER AS ROOT PATH
-define('PATH', 'lms');
+// EX : if http://localhost/lms
+// define('PATH', 'lms');
+
+define('PATH', '');
 
 if (PATH == '') {
   define('ROOT', "http://$_SERVER[HTTP_HOST]/");
@@ -21,8 +24,8 @@ $GLOBALS['config'] = array(
     'mysql'     => array(
       'host'      => '127.0.0.1',
       'username'  => 'root',
-      'password'  => '1210ls',
-      'db'        => 'lms4'
+      'password'  => '',
+      'db'        => 'lms'
     ),
 
     /**
