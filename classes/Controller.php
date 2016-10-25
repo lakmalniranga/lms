@@ -16,9 +16,7 @@ class Controller {
 
 		if ($this->db->count()) {
 			$result .= '<div class="student">
-				<div class="dash-option">
-					<a href="dashboard.php?faculty=add" class="btn btn-md btn-blue">Add Faculty</a>
-				</div>
+			<h3 class="group-title blue-b">Faculty</h3>
 				<div class="column column-12 main margin dashboard-list">
 					<ul>';
 
@@ -29,7 +27,22 @@ class Controller {
 			$result .= '				
 					</ul>
 				</div>
+				<div class="dash-option">
+					<a href="dashboard.php?faculty=add" class="btn btn-md btn-blue">Add Faculty</a>
+				</div>
 			</div>';
+		} else {
+			$result = '<div class="student">
+			<h3 class="group-title blue-b">Faculty</h3>
+				<div class="column column-12 main margin dashboard-list">
+					<ul>
+					</ul>
+				</div>
+				<div class="dash-option">
+					<a href="dashboard.php?faculty=add" class="btn btn-md btn-blue">Add Faculty</a>
+				</div>
+			</div>';
+
 		}
 
 
@@ -65,12 +78,12 @@ class Controller {
 		$result = '';
 
 		$result .= '<div class="add-form">
-			<h3>Add a Faculty</h3>';
+			<h3 class="group-title blue-b">Faculty</h3>';
 
 		$result .= $errors;
 
 		$result .=	'<form method="post">
-				<p><input type="text" name="name" class="text-input"></p>
+				<p><input type="text" name="name" placeholder="Enter Faculty Name" class="text-input"></p>
 				<input type="hidden" name="token" value='. Token::generate() .'>
 				<p><button class="btn btn-blue btn-lg">Add Faculty</button></p>
 			</form>
@@ -112,7 +125,7 @@ class Controller {
 		$result = '';
 
 		$result .= '<div class="add-form">
-			<h3>Upda Faculty</h3>';
+			<h3 class="group-title blue-b">Faculty</h3>';
 
 		$result .= $errors;
 
@@ -144,9 +157,7 @@ class Controller {
 
 		if ($this->db->count()) {
 			$result .= '<div class="student">
-				<div class="dash-option">
-					<a href="dashboard.php?course=add" class="btn btn-md btn-blue">Add Course</a>
-				</div>
+			<h3 class="group-title blue-b">Course</h3>
 				<div class="column column-12 main margin dashboard-list">
 					<ul>';
 
@@ -156,6 +167,20 @@ class Controller {
 			
 			$result .= '				
 					</ul>
+				</div>
+				<div class="dash-option">
+					<a href="dashboard.php?course=add" class="btn btn-md btn-blue">Add Course</a>
+				</div>
+			</div>';
+		} else {
+			$result = '<div class="student">
+			<h3 class="group-title blue-b">Course</h3>
+				<div class="column column-12 main margin dashboard-list">
+					<ul>
+					</ul>
+				</div>
+				<div class="dash-option">
+					<a href="dashboard.php?course=add" class="btn btn-md btn-blue">Add Course</a>
 				</div>
 			</div>';
 		}
@@ -198,12 +223,12 @@ class Controller {
 		$result = '';
 
 		$result .= '<div class="add-form">
-			<h3>Add a Course</h3>';
+			<h3 class="group-title blue-b">Course</h3>';
 
 		$result .= $errors;
 
 		$result .=	'<form method="post">
-				<p><input type="text" name="name" class="text-input"></p>
+				<p><input type="text" name="name" placeholder="Enter Course Name" class="text-input"></p>
 				<p>
 					<select name="faculty">';
 
@@ -259,7 +284,7 @@ class Controller {
 		$result = '';
 
 		$result .= '<div class="add-form">
-			<h3>Update Course</h3>';
+			<h3 class="group-title blue-b">Course</h3>';
 
 		$result .= $errors;
 

@@ -10,10 +10,10 @@
 <aside class="sidebar">
 	<h3 class="group-title blue-b">Category</h3>
 	<ul class="main-menu">
-		<li><img src="<?php echo ROOT . 'assets/images/menu-icon.png'; ?>"><a href="#">Faculty</a></li>
-		<li><img src="<?php echo ROOT . 'assets/images/menu-icon.png'; ?>"><a href="#">Course</a></li>
-		<li><img src="<?php echo ROOT . 'assets/images/menu-icon.png'; ?>"><a href="#">Batch</a></li>
-		<li><img src="<?php echo ROOT . 'assets/images/menu-icon.png'; ?>"><a href="#">Module</a></li>
+		<li><img src="<?php echo ROOT . 'assets/images/menu-icon.png'; ?>"><a href="dashboard.php?faculty=view">Faculty</a></li>
+		<li><img src="<?php echo ROOT . 'assets/images/menu-icon.png'; ?>"><a href="dashboard.php?course=view">Course</a></li>
+		<li><img src="<?php echo ROOT . 'assets/images/menu-icon.png'; ?>"><a href="dashboard.php?batch=view">Batch</a></li>
+		<li><img src="<?php echo ROOT . 'assets/images/menu-icon.png'; ?>"><a href="dashboard.php?module=view">Module</a></li>
 	</ul>
 </aside>
 
