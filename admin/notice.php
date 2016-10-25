@@ -14,8 +14,8 @@ if (isset($_GET['notice']) && $_GET['notice'] == 'add') {
 	}
 ?>
 
-<div class="add-form">
-	<h3>Add a Notice</h3>
+<div class="student">
+	<h3 class="group-title blue-b">NOTICE</h3>
 	<?php if (Input::exists()) { 
 
 		$validation = $validate->check($_POST, [
@@ -61,15 +61,16 @@ if (isset($_GET['notice']) && $_GET['notice'] == 'add') {
 ?>
 
 <div class="student">
-	<div class="dash-option">
-		<a href="dashboard.php?notice=add" class="btn btn-md btn-blue">Add Notice</a>
-	</div>
+<h3 class="group-title blue-b">Notice</h3>
 	<div class="column column-12 main margin dashboard-list">
 		<ul>
 			<?php foreach ($notices as $notice): ?>
 				<li><p class="list-text"><?php echo $notice->title; ?><p class="action"><a class="btn btn-sm btn-green" href="dashboard.php?notice=edit&id=<?php echo $notice->id; ?>">Edit</a> <a class="btn btn-sm btn-red" href="dashboard.php?notice=delete&id=<?php echo $notice->id; ?>">Delete</a></p></li>
 			<?php endforeach ?>
 		</ul>
+	</div>
+	<div class="dash-option">
+		<a href="dashboard.php?notice=add" class="btn btn-md btn-blue">Add Notice</a>
 	</div>
 </div>
 

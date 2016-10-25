@@ -39,7 +39,7 @@ if (Input::exists()) {
 			<?php $u = DB::getInstance()->get('users', array('role', '=', '1'));	?>
 
 				<?php if ($u->count() > 0): ?>
-		  			<?php foreach ($u->limitTo(10) as $user): ?>
+		  			<?php foreach ($u->results() as $user): ?>
 						<tr>
 							<td><input type="checkbox" name="checkbox[]" value="<?php echo $user->id; ?>" id="<?php echo $user->id; ?>"></td>
 							<td><?php echo $user->username; ?></td>

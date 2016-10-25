@@ -36,8 +36,8 @@ if (Input::exists()) {
 
   <section>
     <div class="row">
-      <div class="column column-4 offset-4 main border">
-      <h2 class="group-title text-center">Student Login</h2>
+      <div class="column column-4 offset-4 main border-blue">
+      <h2 class="group-title text-center blue-b ">Student Login</h2>
         <section class="login">
           
           <div id="errors" class="errors">

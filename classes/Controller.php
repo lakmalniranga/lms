@@ -349,6 +349,17 @@ class Controller {
 				<div class="dash-option">
 					<a href="dashboard.php?batch=add" class="btn btn-md btn-blue">Add Batch</a>
 				</div>';
+		}else {
+			$result = '<div class="student">
+			<h3 class="group-title blue-b">Faculty</h3>
+				<div class="column column-12 main margin dashboard-list">
+					<ul>
+					</ul>
+				</div>
+				<div class="dash-option">
+					<a href="dashboard.php?batch=add" class="btn btn-md btn-blue">Add Batch</a>
+				</div>
+			</div>';
 		}
 
 		$result .= '</div>';
@@ -508,6 +519,17 @@ class Controller {
 				</div>				
 					</ul>
 				</div>';
+		}else {
+			$result = '<div class="student">
+			<h3 class="group-title blue-b">Faculty</h3>
+				<div class="column column-12 main margin dashboard-list">
+					<ul>
+					</ul>
+				</div>
+				<div class="dash-option">
+					<a href="dashboard.php?module=add" class="btn btn-md btn-blue">Add Module</a>
+				</div>
+			</div>';
 		}
 
 		$result .= '</div>';
@@ -692,6 +714,17 @@ class Controller {
 			
 			$result .= '</ul>
 				</div>
+				</div>
+				<div class="dash-option">
+					<a href="dashboard.php?sub_module=add" class="btn btn-md btn-blue">Add Sub-Module</a>
+				</div>
+			</div>';
+		}else {
+			$result = '<div class="student">
+			<h3 class="group-title blue-b">Faculty</h3>
+				<div class="column column-12 main margin dashboard-list">
+					<ul>
+					</ul>
 				</div>
 				<div class="dash-option">
 					<a href="dashboard.php?sub_module=add" class="btn btn-md btn-blue">Add Sub-Module</a>
