@@ -319,6 +319,164 @@ class Controller {
 		}
 	}
 
+	public function batchView() {
+		$result = '';
+		$data = $this->db->query("SELECT * FROM batch")->results();
+
+
+		if ($this->db->count()) {
+			$result .= '<div class="student">
+				<div class="dash-option">
+					<a href="dashboard.php?batch=add" class="btn btn-md btn-blue">Add Faculty</a>
+				</div>
+				<div class="column column-12 main margin dashboard-list">
+					<ul>';
+
+			foreach ($data as $d) {
+				$c = $this->db->get('course', ['id', '=', $d->course_id])->first()->name;
+				$result .= '<li><p class="list-text">'. $d->name .' - '. $c .'<p class="action"><a class="btn btn-sm btn-green" href="dashboard.php?batch=edit&id='. $d->id .'">Edit</a> <a class="btn btn-sm btn-red" href="dashboard.php?batch=delete&id='. $d->id .'">Delete</a></p></li>';
+			}
+			
+			$result .= '				
+					</ul>
+				</div>
+			</div>';
+		}
+
+
+		return $result;
+	}
+
+	public function batchAddForm() {
+		$errors = '';
+		if (Input::exists()) {
+			if (Token::check(Input::get('token'))) {
+				$validation = $this->validate->check($_POST, [
+					'name'	=> [
+						'required'	=> true
+					],
+					'course'	=> [
+						'required'	=> true
+					]
+				]);
+
+				if (!$validation->passed()) {
+					$errors = $this->showErrors($validation->errors());
+				} else {
+					$name = escape(Input::get('name'));
+					$course = (int) Input::get('course');
+
+					if ($this->db->insert('batch', ['name'	=> $name, 'course_id'	=> $course])) {
+						Session::flash('home', 'Batch added successfully!');
+						Redirect::to('dashboard.php?batch=view');
+					} else {
+						Session::flash('error', 'Something went wrong!');
+						Redirect::to('dashboard.php?batch=view');
+					}
+				}
+
+			}
+		}
+
+		$result = '';
+
+		$result .= '<div class="add-form">
+			<h3>Add a Batch</h3>';
+
+		$result .= $errors;
+
+		$result .=	'<form method="post">
+				<p><input type="text" name="name" class="text-input" placeholder="Batch Name"></p>
+				<p>
+					<select name="course">';
+
+				foreach ($this->get('course') as $course) {
+					$result .= '<option value="'. $course->id .'">'. $course->name .'</option>';
+				}
+					
+		$result .= 	'</select>
+					</p>
+				<input type="hidden" name="token" value='. Token::generate() .'>
+				<p><button class="btn btn-blue btn-lg">Add Batch</button></p>
+			</form>
+		';
+
+		$result .= '</div>';
+
+		return $result;
+	}
+
+	public function batchEditForm($id) {
+		$data = $this->db->get('batch', ['id', '=', $id])->first();
+		$errors = '';
+
+		if (Input::exists()) {
+			if (Token::check(Input::get('token'))) {
+				$validation = $this->validate->check($_POST, [
+					'name'	=> [
+						'required'	=> true
+					],
+					'course'	=> [
+						'required'	=> true
+					]
+				]);
+
+				if (!$validation->passed()) {
+					$errors = $this->showErrors($validation->errors());
+				} else {
+					$name = escape(Input::get('name'));
+					$course = (int) Input::get('course');
+					
+					if ($this->db->update('batch', $id, ['name'	=> $name, 'course_id'	=> $course])) {
+						Session::flash('home', 'Batch added successfully!');
+						Redirect::to('dashboard.php?batch=view');
+					} else {
+						Session::flash('error', 'Something went wrong!');
+						Redirect::to('dashboard.php?batch=view');
+					}
+				}
+
+			}
+		}
+
+		$result = '';
+
+		$result .= '<div class="add-form">
+			<h3>Update Batch</h3>';
+
+		$result .= $errors;
+
+		$result .=	'<form method="post">
+				<p><input type="text" name="name" class="text-input" value="'. $data->name .'"></p>
+				<p>
+					<select name="course">';
+
+				foreach ($this->get('course') as $course) {
+					$result .= '<option value="'. $course->id .'">'. $course->name .'</option>';
+				}
+					
+		$result .= 	'</select>
+					</p>
+				<input type="hidden" name="token" value='. Token::generate() .'>
+				<p><button class="btn btn-blue btn-lg">Update Batch</button></p>
+			</form>
+		';
+
+		$result .= '</div>';
+
+		return $result;
+	}
+
+	public function batchDelete($id) {
+		if ($this->db->delete('batch', ['id', '=', $id])) {
+			Session::flash('home', 'Batch deleted successfully!');
+			Redirect::to('dashboard.php?batch=view');
+		} else {
+			Session::flash('error', 'Something went Wrong!');
+			Redirect::to('dashboard.php?batch=view');
+		}
+	}
+
 	public function get($table) {
 		$data = $this->db->query("SELECT * FROM $table");
 		if ($data) {
