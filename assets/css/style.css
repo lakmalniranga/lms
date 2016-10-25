@@ -583,6 +583,7 @@ h2.group-title {
 .topic-title i {
     font-size: 22px;
     margin-right: 5px;
+    vertical-align: middle;
 }
 
 .topic-title a .tooltiptext {
