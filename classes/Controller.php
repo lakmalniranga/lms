@@ -15,14 +15,10 @@ class Controller {
 		$data = $this->db->query("SELECT * FROM faculty")->results();
 
 		$result .= '<div class="student">
-				<div class="dash-option">
-					<a href="dashboard.php?faculty=add" class="btn btn-md btn-blue">Add Faculty</a>
-				</div>';
+			<h3 class="group-title blue-b">Faculty</h3>';
 
 		if ($this->db->count()) {
-			$result .= '<div class="student">
-			<h3 class="group-title blue-b">Faculty</h3>
-
+			$result .= '
 				<div class="column column-12 main margin dashboard-list">
 					<ul>';
 
@@ -85,8 +81,8 @@ class Controller {
 
 		$result = '';
 
-		$result .= '<div class="add-form">
-			<h3 class="group-title blue-b">Faculty</h3>';
+		$result .= '<div class="student">
+			<h3 class="group-title blue-b">Faculty Add</h3>';
 
 		$result .= $errors;
 
@@ -132,8 +128,8 @@ class Controller {
 
 		$result = '';
 
-		$result .= '<div class="add-form">
-			<h3 class="group-title blue-b">Faculty</h3>';
+		$result .= '<div class="student">
+			<h3 class="group-title blue-b">Faculty Edit</h3>';
 
 		$result .= $errors;
 
@@ -165,13 +161,10 @@ class Controller {
 
 
 		$result .= '<div class="student">
-				<div class="dash-option">
-					<a href="dashboard.php?course=add" class="btn btn-md btn-blue">Add Course</a>
-				</div>';
+			<h3 class="group-title blue-b">Course</h3>';
 
 		if ($this->db->count()) {
-			$result .= '<div class="student">
-			<h3 class="group-title blue-b">Course</h3>
+			$result .= '
 				<div class="column column-12 main margin dashboard-list">
 					<ul>';
 
@@ -237,10 +230,8 @@ class Controller {
 			}
 		}
 
-		$result = '';
-
-		$result .= '<div class="add-form">
-			<h3 class="group-title blue-b">Course</h3>';
+		$result = '<div class="student">
+			<h3 class="group-title blue-b">Course Add</h3>';
 
 		$result .= $errors;
 
@@ -300,8 +291,8 @@ class Controller {
 
 		$result = '';
 
-		$result .= '<div class="add-form">
-			<h3 class="group-title blue-b">Course</h3>';
+		$result .= '<div class="student">
+			<h3 class="group-title blue-b">Course Edit</h3>';
 
 		$result .= $errors;
 
@@ -341,9 +332,7 @@ class Controller {
 		$data = $this->db->query("SELECT * FROM batch")->results();
 
 		$result .= '<div class="student">
-				<div class="dash-option">
-					<a href="dashboard.php?batch=add" class="btn btn-md btn-blue">Add Faculty</a>
-				</div>';
+		<h3 class="group-title blue-b">Batch</h3>';
 
 		if ($this->db->count()) {
 			$result .= '<div class="column column-12 main margin dashboard-list">
@@ -356,6 +345,9 @@ class Controller {
 			
 			$result .= '				
 					</ul>
+				</div>
+				<div class="dash-option">
+					<a href="dashboard.php?batch=add" class="btn btn-md btn-blue">Add Batch</a>
 				</div>';
 		}
 
@@ -397,8 +389,8 @@ class Controller {
 
 		$result = '';
 
-		$result .= '<div class="add-form">
-			<h3>Add a Batch</h3>';
+		$result .= '<div class="student">
+		<h3 class="group-title blue-b">Batch ADd</h3>';
 
 		$result .= $errors;
 
@@ -458,8 +450,8 @@ class Controller {
 
 		$result = '';
 
-		$result .= '<div class="add-form">
-			<h3>Update Batch</h3>';
+		$result .= '<div class="student">
+		<h3 class="group-title blue-b">Batch Edit</h3>';
 
 		$result .= $errors;
 
@@ -495,13 +487,9 @@ class Controller {
 	}
 
 	public function moduleView() {
-		$result = '';
+		$result = '<div class="student">
+			<h3 class="group-title blue-b">Module</h3>';
 		$data = $this->db->query("SELECT * FROM module")->results();
-
-		$result .= '<div class="student">
-				<div class="dash-option">
-					<a href="dashboard.php?module=add" class="btn btn-md btn-blue">Add Module</a>
-				</div>';
 
 		if ($this->db->count()) {
 			$result .= 
@@ -514,7 +502,10 @@ class Controller {
 				$result .= '<li><p class="list-text"><b>'. $d->name .'</b> - '. $c .' - '. $b .'<p class="action"><a class="btn btn-sm btn-green" href="dashboard.php?module=edit&id='. $d->id .'">Edit</a> <a class="btn btn-sm btn-red" href="dashboard.php?module=delete&id='. $d->id .'">Delete</a></p></li>';
 			}
 			
-			$result .= '				
+			$result .= '
+			<div class="dash-option">
+					<a href="dashboard.php?module=add" class="btn btn-md btn-blue">Add Module</a>
+				</div>				
 					</ul>
 				</div>';
 		}
@@ -562,8 +553,8 @@ class Controller {
 
 		$result = '';
 
-		$result .= '<div class="add-form">
-			<h3>Add a Module</h3>';
+		$result .= '<div class="student">
+			<h3 class="group-title blue-b">Module Add</h3>';
 
 		$result .= $errors;
 
@@ -636,8 +627,8 @@ class Controller {
 
 		$result = '';
 
-		$result .= '<div class="add-form">
-			<h3>Update Module</h3>';
+		$result .= '<div class="student">
+			<h3 class="group-title blue-b">Module Edit</h3>';
 
 		$result .= $errors;
 
@@ -687,9 +678,7 @@ class Controller {
 		$data = $this->db->query("SELECT * FROM sub_module")->results();
 
 		$result .= '<div class="student">
-				<div class="dash-option">
-					<a href="dashboard.php?sub_module=add" class="btn btn-md btn-blue">Add Sub Module</a>
-				</div>';
+			<h3 class="group-title blue-b">Sub-Module</h3>';
 
 		if ($this->db->count()) {
 			$result .= 
@@ -701,9 +690,13 @@ class Controller {
 				$result .= '<li><p class="list-text"><b>'. $d->name .'</b> - '. $m .'<p class="action"><a class="btn btn-sm btn-green" href="dashboard.php?sub_module=edit&id='. $d->id .'">Edit</a> <a class="btn btn-sm btn-red" href="dashboard.php?sub_module=delete&id='. $d->id .'">Delete</a></p></li>';
 			}
 			
-			$result .= '				
-					</ul>
-				</div>';
+			$result .= '</ul>
+				</div>
+				</div>
+				<div class="dash-option">
+					<a href="dashboard.php?sub_module=add" class="btn btn-md btn-blue">Add Sub-Module</a>
+				</div>
+			</div>';
 		}
 
 		$result .= '</div>';
@@ -773,8 +766,8 @@ class Controller {
 
 		$result = '';
 
-		$result .= '<div class="add-form">
-			<h3>Add Module Data</h3>';
+		$result .= '<div class="student">
+			<h3 class="group-title blue-b">Sub-Module Add</h3>';
 
 		$result .= $errors;
 
@@ -895,8 +888,8 @@ class Controller {
 
 		$result = '';
 
-		$result .= '<div class="add-form">
-			<h3>Update Module Data</h3>';
+		$result .= '<div class="student">
+			<h3 class="group-title blue-b">Sub-Module Edit</h3>';
 
 		$result .= $errors;
 

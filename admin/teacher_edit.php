@@ -8,61 +8,61 @@ if (Input::exists()) {
       'username' => array(
       'required' => true,
       'min' => 5,
-			'max' => 12,
+      'max' => 12,
     ),
 
       'email' => array(
-			'required' => true,
-			'email' => true,
-		),
+      'required' => true,
+      'email' => true,
+    ),
 
       'name' => array(
-			'required' => true,
-			'min' => 8,
-			'max' => 50
-		),
+      'required' => true,
+      'min' => 8,
+      'max' => 50
+    ),
 
       'mobile' => array(
-			'required' => true,
-			'min' => 9,
-			'max' => 10
-		),
+      'required' => true,
+      'min' => 9,
+      'max' => 10
+    ),
 
       'password' => array(
-  		'required' => true,
-  		'min' => 8
+      'required' => true,
+      'min' => 8
     ),
   ));
 
     if ($validation->passed()) {
 
-			$salt = Hash::salt(32);
+      $salt = Hash::salt(32);
 
-			try {
-				$u->update(Input::get('id'),array(
-					'username' => Input::get('username'),
+      try {
+        $u->update(Input::get('id'),array(
+          'username' => Input::get('username'),
           'password' => Hash::generateHash(Input::get('password'), $salt),
           'salt' => $salt,
           'name' => Input::get('name'),
           'email' => Input::get('email'),
           'mobile' => Input::get('mobile'),
           'joined' => date('Y-m-d H:i:s'),
-          'role' => 1
-				));
+          'role' => 3
+        ));
 
-				Session::flash('home', 'User registerd');
-				Redirect::to('dashboard.php?student=view');
-			} catch (Exception $e) {
-				die($e->getMessage());
-			}
-		}
- 	}
+        Session::flash('home', 'User registerd');
+        header('Location: dashboard.php?teacher=view');
+      } catch (Exception $e) {
+        die($e->getMessage());
+      }
+    }
+  }
 }
 ?>
 
-  	<div class="student">
+    <div class="student">
 
-		<h3 class="group-title blue-b">Student Edit</h3>
+    <h3 class="group-title blue-b">Teacher Edit</h3>
           
           <div id="errors" class="errors">
             <?php if (!empty($validate->errors())) : ?>

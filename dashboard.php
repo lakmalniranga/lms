@@ -17,11 +17,25 @@
 			}
 			// Teacher
 			elseif ((isset($_GET['teacher'])) && ($_GET['teacher']=='view')) {
-				require_once 'admin/student.php';
+				require_once 'admin/teacher.php';
 			}
+			elseif ((isset($_GET['teacher'])) && ($_GET['teacher']=='add')) {
+				require_once 'admin/teacher_add.php';
+			}
+			elseif ((isset($_GET['teacher'])) && ($_GET['teacher']=='edit')) {
+				require_once 'admin/teacher_edit.php';
+			}
+			// Admin
 			elseif ((isset($_GET['admin'])) && ($_GET['admin']=='view')) {
 				require_once 'admin/admin.php';
 			}
+			elseif ((isset($_GET['admin'])) && ($_GET['admin']=='add')) {
+				require_once 'admin/admin_add.php';
+			}
+			elseif ((isset($_GET['admin'])) && ($_GET['admin']=='edit')) {
+				require_once 'admin/admin_edit.php';
+			}
+			// Faculty
 			elseif ((isset($_GET['faculty'])) && ($_GET['faculty']=='view')) {
 				require_once 'admin/faculty.php';
 			} else if ((isset($_GET['faculty'])) && ($_GET['faculty']=='add')) {
