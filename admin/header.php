@@ -67,12 +67,6 @@ require_once 'core/init.php';
                         ADMIN
                       </a>
                     </li>
-                  <?php elseif ($user->hasPermission('teacher')): ?>
-                    <li class="right">
-                      <a href="dashboard.php"><i class="fa fa-cog" aria-hidden="true"></i>
-                        TEACHER
-                      </a>
-                    </li>
                   <?php else: Redirect::to('index.php'); ?>
                   <?php endif; ?>
 

@@ -23,7 +23,7 @@ if (Input::exists()) {
 
 
 <div class="student">
-<h3 class="group-title blue-b">Administrator</h3>
+<h3 class="group-title blue-b">Teacher</h3>
 	<div class="column column-12 main margin">
 		<table class="table">
 			<thead>
@@ -35,7 +35,7 @@ if (Input::exists()) {
 			</thead>
 			<tbody>
 			<form method="post">
-			<?php $u = DB::getInstance()->get('users', array('role', '=', '2'));	?>
+			<?php $u = DB::getInstance()->get('users', array('role', '=', '3'));	?>
 				<?php if ($u->count() > 0): ?>
 		  			<?php foreach ($u->limitTo(10) as $user): ?>
 						<tr>
@@ -51,7 +51,7 @@ if (Input::exists()) {
 									<span class="tooltiptext"><?php echo $user->mobile; ?></span>
 								</a> 
 							</td>
-							<td><a href="dashboard.php?admin=edit&id=<?php echo $user->id; ?>" class="btn btn-md btn-teal">Edit</a></td>
+							<td><a href="dashboard.php?teacher=edit&id=<?php echo $user->id; ?>" class="btn btn-md btn-teal">Edit</a></td>
 						</tr>
 					<?php endforeach; ?>
 				<?php else: ?>
@@ -67,7 +67,7 @@ if (Input::exists()) {
 		<a onclick="selectall()" class="btn btn-md btn-green">Select All</a>
 		<a onclick="selectnone()" class="btn btn-md btn-green">Select None</a>
 		<button type="submit" class="btn btn-md btn-red">Delete</button>
-		<a href="dashboard.php?admin=add" class="btn btn-md btn-blue">Add</a>
+		<a href="dashboard.php?teacher=add" class="btn btn-md btn-blue">Add</a>
 	</div>
 
 	</form>

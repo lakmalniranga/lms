@@ -31,21 +31,20 @@ if (Input::exists()) {
 				<th>Username</th>
 				<th>Name</th>
 				<th>Faculty</th>
-				<th>Course</th>
 				<th>Contact</th>
 				<th></th>
 			</thead>
 			<tbody>
 			<form method="post">
 			<?php $u = DB::getInstance()->get('users', array('role', '=', '1'));	?>
+
 				<?php if ($u->count() > 0): ?>
 		  			<?php foreach ($u->limitTo(10) as $user): ?>
 						<tr>
 							<td><input type="checkbox" name="checkbox[]" value="<?php echo $user->id; ?>" id="<?php echo $user->id; ?>"></td>
 							<td><?php echo $user->username; ?></td>
 							<td><?php echo $user->name; ?></td>
-							<td>Computing</td>
-							<td>BSc Software Enginering</td>
+							<td><?php echo DB::getInstance()->get('faculty', array('id', '=', $user->faculty_id))->first()->name;	?></td>
 							<td>
 								<a href="mailto:<?php echo $user->email; ?>">
 									<i class="fa fa-envelope-o" aria-hidden="true"></i>

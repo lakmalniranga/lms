@@ -51,10 +51,26 @@ require_once 'core/init.php';
               <li><a href="#">Chat</a></li>
 
               <?php if ($user->isLoggedIn()) : ?>
-                <li class="right"><a href="logout.php">Logout</a></li>
-                <li class="right"><a href="profile.php">My Profile</a></li>
-              <?php else : ?>
-                <li class="right"><a href="login.php">Login</a></li>
+                  <li class="right">
+                    <a href="logout.php"><i class="fa fa-sign-out" aria-hidden="true"></i></a>
+                  </li>
+
+                  <li class="right">
+                    <a href="#"><i class="fa fa-user" aria-hidden="true"></i></a>
+                  </li>
+
+                  <?php if ($user->hasPermission('admin')): ?>
+                    <li class="right">
+                      <a href="dashboard.php"><i class="fa fa-cog" aria-hidden="true"></i>
+                        ADMIN
+                      </a>
+                    </li>
+                  <?php endif; ?>
+
+                <?php else: ?>
+                  <li class="right">
+                    <a href="login.php">Login</a>
+                  </li>
               <?php endif; ?>
             </ul>
           </nav>
