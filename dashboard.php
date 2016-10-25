@@ -24,8 +24,19 @@
 			}
 			elseif ((isset($_GET['faculty'])) && ($_GET['faculty']=='view')) {
 				require_once 'admin/faculty.php';
-			}
-			elseif ((isset($_GET['course'])) && ($_GET['course']=='view')) {
+			} else if ((isset($_GET['faculty'])) && ($_GET['faculty']=='add')) {
+				require_once 'admin/faculty.php';
+			} else if (((isset($_GET['faculty'])) && isset($_GET['id']) && ($_GET['faculty']=='delete'))) {
+				require_once 'admin/faculty.php';
+			} else if (((isset($_GET['faculty'])) && isset($_GET['id']) && ($_GET['faculty']=='edit'))) {
+				require_once 'admin/faculty.php';
+			} elseif ((isset($_GET['course'])) && ($_GET['course']=='view')) {
+				require_once 'admin/course.php';
+			} else if ((isset($_GET['course'])) && ($_GET['course']=='add')) {
+				require_once 'admin/course.php';
+			} else if (((isset($_GET['course'])) && isset($_GET['id']) && ($_GET['course']=='delete'))) {
+				require_once 'admin/course.php';
+			} else if (((isset($_GET['course'])) && isset($_GET['id']) && ($_GET['course']=='edit'))) {
 				require_once 'admin/course.php';
 			}
 			elseif ((isset($_GET['batch'])) && ($_GET['batch']=='view')) {
