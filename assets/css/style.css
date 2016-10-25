@@ -127,27 +127,27 @@ h4 a i {
 
 .red-b {
     background: #f44336;
-    color: white; 
+    color: white;
 }
 
 .blue-b {
     background: #2196f3;
-    color: white; 
+    color: white;
 }
 
 .green-b{
     background: #4caf50;
-    color: white; 
+    color: white;
 }
 
 .teal-b {
     background: #009688;
-    color: white; 
+    color: white;
 }
 
 .ash-b {
     background: #ddd;
-    color: black; 
+    color: black;
 }
 /* End Colors */
 
@@ -798,10 +798,12 @@ td a i {
 
 /*start profile css*/
 #ProfilePage
+.profile {
+  margin-bottom: 25px;
+}
+
 {
-    margin: 50px auto;
     width: 635px;
-    border: 1px solid red;
 }
 
 #LeftCol
