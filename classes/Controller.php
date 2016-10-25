@@ -14,19 +14,15 @@ class Controller {
 		$result = '';
 		$data = $this->db->query("SELECT * FROM faculty")->results();
 
-<<<<<<< HEAD
 		$result .= '<div class="student">
 				<div class="dash-option">
 					<a href="dashboard.php?faculty=add" class="btn btn-md btn-blue">Add Faculty</a>
 				</div>';
 
 		if ($this->db->count()) {
-			$result .= '
-=======
-		if ($this->db->count()) {
 			$result .= '<div class="student">
 			<h3 class="group-title blue-b">Faculty</h3>
->>>>>>> 16f1155be49ed62b8cf44aed30a04824c8ea3649
+
 				<div class="column column-12 main margin dashboard-list">
 					<ul>';
 
@@ -36,14 +32,13 @@ class Controller {
 			
 			$result .= '				
 					</ul>
-<<<<<<< HEAD
-				</div>';
-=======
+				</div>
 				</div>
 				<div class="dash-option">
 					<a href="dashboard.php?faculty=add" class="btn btn-md btn-blue">Add Faculty</a>
 				</div>
 			</div>';
+
 		} else {
 			$result = '<div class="student">
 			<h3 class="group-title blue-b">Faculty</h3>
@@ -55,8 +50,6 @@ class Controller {
 					<a href="dashboard.php?faculty=add" class="btn btn-md btn-blue">Add Faculty</a>
 				</div>
 			</div>';
-
->>>>>>> 16f1155be49ed62b8cf44aed30a04824c8ea3649
 		}
 
 		$result .= '</div>';
@@ -170,19 +163,15 @@ class Controller {
 		$result = '';
 		$data = $this->db->query("SELECT * FROM course")->results();
 
-<<<<<<< HEAD
+
 		$result .= '<div class="student">
 				<div class="dash-option">
 					<a href="dashboard.php?course=add" class="btn btn-md btn-blue">Add Course</a>
 				</div>';
 
 		if ($this->db->count()) {
-			$result .= '
-=======
-		if ($this->db->count()) {
 			$result .= '<div class="student">
 			<h3 class="group-title blue-b">Course</h3>
->>>>>>> 16f1155be49ed62b8cf44aed30a04824c8ea3649
 				<div class="column column-12 main margin dashboard-list">
 					<ul>';
 
@@ -192,9 +181,8 @@ class Controller {
 			
 			$result .= '				
 					</ul>
-<<<<<<< HEAD
-				</div>';
-=======
+				</div>
+
 				</div>
 				<div class="dash-option">
 					<a href="dashboard.php?course=add" class="btn btn-md btn-blue">Add Course</a>
@@ -211,7 +199,6 @@ class Controller {
 					<a href="dashboard.php?course=add" class="btn btn-md btn-blue">Add Course</a>
 				</div>
 			</div>';
->>>>>>> 16f1155be49ed62b8cf44aed30a04824c8ea3649
 		}
 
 		$result .= '</div>';
