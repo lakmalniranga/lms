@@ -46,14 +46,15 @@
 				require_once 'admin/batch.php';
 			} else if (((isset($_GET['batch'])) && isset($_GET['id']) && ($_GET['batch']=='edit'))) {
 				require_once 'admin/batch.php';
-			}
-			elseif ((isset($_GET['batch'])) && ($_GET['batch']=='view')) {
-				require_once 'admin/batch.php';
-			}
-			elseif ((isset($_GET['module'])) && ($_GET['module']=='view')) {
+			} elseif ((isset($_GET['module'])) && ($_GET['module']=='view')) {
 				require_once 'admin/module.php';
-			}
-			elseif ((isset($_GET['notice'])) && ($_GET['notice']=='view')) {
+			} else if ((isset($_GET['module'])) && ($_GET['module']=='add')) {
+				require_once 'admin/module.php';
+			} else if (((isset($_GET['module'])) && isset($_GET['id']) && ($_GET['module']=='delete'))) {
+				require_once 'admin/module.php';
+			} else if (((isset($_GET['module'])) && isset($_GET['id']) && ($_GET['module']=='edit'))) {
+				require_once 'admin/module.php';
+			} elseif ((isset($_GET['notice'])) && ($_GET['notice']=='view')) {
 				require_once 'admin/notice.php';
 			}
 			elseif ((isset($_GET['backup'])) && ($_GET['backup']=='view')) {

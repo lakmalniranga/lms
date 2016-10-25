@@ -14,11 +14,13 @@ class Controller {
 		$result = '';
 		$data = $this->db->query("SELECT * FROM faculty")->results();
 
-		if ($this->db->count()) {
-			$result .= '<div class="student">
+		$result .= '<div class="student">
 				<div class="dash-option">
 					<a href="dashboard.php?faculty=add" class="btn btn-md btn-blue">Add Faculty</a>
-				</div>
+				</div>';
+
+		if ($this->db->count()) {
+			$result .= '
 				<div class="column column-12 main margin dashboard-list">
 					<ul>';
 
@@ -28,10 +30,10 @@ class Controller {
 			
 			$result .= '				
 					</ul>
-				</div>
-			</div>';
+				</div>';
 		}
 
+		$result .= '</div>';
 
 		return $result;
 	}
@@ -142,11 +144,13 @@ class Controller {
 		$result = '';
 		$data = $this->db->query("SELECT * FROM course")->results();
 
-		if ($this->db->count()) {
-			$result .= '<div class="student">
+		$result .= '<div class="student">
 				<div class="dash-option">
 					<a href="dashboard.php?course=add" class="btn btn-md btn-blue">Add Course</a>
-				</div>
+				</div>';
+
+		if ($this->db->count()) {
+			$result .= '
 				<div class="column column-12 main margin dashboard-list">
 					<ul>';
 
@@ -156,10 +160,10 @@ class Controller {
 			
 			$result .= '				
 					</ul>
-				</div>
-			</div>';
+				</div>';
 		}
 
+		$result .= '</div>';
 
 		return $result;
 	}
@@ -298,13 +302,13 @@ class Controller {
 		$result = '';
 		$data = $this->db->query("SELECT * FROM batch")->results();
 
-
-		if ($this->db->count()) {
-			$result .= '<div class="student">
+		$result .= '<div class="student">
 				<div class="dash-option">
 					<a href="dashboard.php?batch=add" class="btn btn-md btn-blue">Add Faculty</a>
-				</div>
-				<div class="column column-12 main margin dashboard-list">
+				</div>';
+
+		if ($this->db->count()) {
+			$result .= '<div class="column column-12 main margin dashboard-list">
 					<ul>';
 
 			foreach ($data as $d) {
@@ -314,10 +318,10 @@ class Controller {
 			
 			$result .= '				
 					</ul>
-				</div>
-			</div>';
+				</div>';
 		}
 
+		$result .= '</div>';
 
 		return $result;
 	}
@@ -449,6 +453,194 @@ class Controller {
 		} else {
 			Session::flash('error', 'Something went Wrong!');
 			Redirect::to('dashboard.php?batch=view');
+		}
+	}
+
+	public function moduleView() {
+		$result = '';
+		$data = $this->db->query("SELECT * FROM module")->results();
+
+		$result .= '<div class="student">
+				<div class="dash-option">
+					<a href="dashboard.php?module=add" class="btn btn-md btn-blue">Add Module</a>
+				</div>';
+
+		if ($this->db->count()) {
+			$result .= 
+				'<div class="column column-12 main margin dashboard-list">
+					<ul>';
+
+			foreach ($data as $d) {
+				$c = $this->db->get('course', ['id', '=', $d->course_id])->first()->name;
+				$b = $this->db->get('batch', ['id', '=', $d->batch_id])->first()->name;
+				$result .= '<li><p class="list-text"><b>'. $d->name .'</b> - '. $c .' - '. $b .'<p class="action"><a class="btn btn-sm btn-green" href="dashboard.php?module=edit&id='. $d->id .'">Edit</a> <a class="btn btn-sm btn-red" href="dashboard.php?module=delete&id='. $d->id .'">Delete</a></p></li>';
+			}
+			
+			$result .= '				
+					</ul>
+				</div>';
+		}
+
+		$result .= '</div>';
+
+
+		return $result;
+	}
+
+	public function moduleAddForm() {
+		$errors = '';
+		if (Input::exists()) {
+			if (Token::check(Input::get('token'))) {
+				$validation = $this->validate->check($_POST, [
+					'name'	=> [
+						'required'	=> true
+					],
+					'course'	=> [
+						'required'	=> true
+					],
+					'batch'	=> [
+						'required'	=> true
+					]
+				]);
+
+				if (!$validation->passed()) {
+					$errors = $this->showErrors($validation->errors());
+				} else {
+					$name = escape(Input::get('name'));
+					$course = (int) Input::get('course');
+					$batch = (int) Input::get('batch');
+
+					if ($this->db->insert('module', ['name'	=> $name, 'course_id'	=> $course, 'batch_id'	=> $batch])) {
+						Session::flash('home', 'Module added successfully!');
+						Redirect::to('dashboard.php?module=view');
+					} else {
+						Session::flash('error', 'Something went wrong!');
+						Redirect::to('dashboard.php?module=view');
+					}
+				}
+
+			}
+		}
+
+		$result = '';
+
+		$result .= '<div class="add-form">
+			<h3>Add a Module</h3>';
+
+		$result .= $errors;
+
+		$result .=	'<form method="post">
+				<p><input type="text" name="name" class="text-input" placeholder="Module Name"></p>
+				<p>
+					Course : <select name="course">';
+
+				foreach ($this->get('course') as $course) {
+					$result .= '<option value="'. $course->id .'">'. $course->name .'</option>';
+				}
+					
+		$result .= 	'</select>
+					</p>
+					<p>
+						Batch : <select name="batch">';
+
+				foreach ($this->get('batch') as $batch) {
+					$c = $this->db->get('course', ['id', '=', $batch->course_id])->first()->name;
+					$result .= '<option value="'. $batch->id .'">'. $batch->name .' - '. $c .'</option>';
+				}
+
+		$result .=	'</select>
+					</p>
+				<input type="hidden" name="token" value='. Token::generate() .'>
+				<p><button class="btn btn-blue btn-lg">Add Module</button></p>
+			</form>
+		';
+
+		$result .= '</div>';
+
+		return $result;
+	}
+
+	public function moduleEditForm($id) {
+		$data = $this->db->get('module', ['id', '=', $id])->first();
+		$errors = '';
+		if (Input::exists()) {
+			if (Token::check(Input::get('token'))) {
+				$validation = $this->validate->check($_POST, [
+					'name'	=> [
+						'required'	=> true
+					],
+					'course'	=> [
+						'required'	=> true
+					],
+					'batch'	=> [
+						'required'	=> true
+					]
+				]);
+
+				if (!$validation->passed()) {
+					$errors = $this->showErrors($validation->errors());
+				} else {
+					$name = escape(Input::get('name'));
+					$course = (int) Input::get('course');
+					$batch = (int) Input::get('batch');
+
+					if ($this->db->update('module', $id, ['name'	=> $name, 'course_id'	=> $course, 'batch_id'	=> $batch])) {
+						Session::flash('home', 'Module updated successfully!');
+						Redirect::to('dashboard.php?module=view');
+					} else {
+						Session::flash('error', 'Something went wrong!');
+						Redirect::to('dashboard.php?module=view');
+					}
+				}
+
+			}
+		}
+
+		$result = '';
+
+		$result .= '<div class="add-form">
+			<h3>Update Module</h3>';
+
+		$result .= $errors;
+
+		$result .=	'<form method="post">
+				<p><input type="text" name="name" class="text-input" placeholder="Module Name" value="'. $data->name .'"></p>
+				<p>
+					Course : <select name="course">';
+
+				foreach ($this->get('course') as $course) {
+					$result .= '<option value="'. $course->id .'">'. $course->name .'</option>';
+				}
+					
+		$result .= 	'</select>
+					</p>
+					<p>
+						Batch : <select name="batch">';
+
+				foreach ($this->get('batch') as $batch) {
+					$c = $this->db->get('course', ['id', '=', $batch->course_id])->first()->name;
+					$result .= '<option value="'. $batch->id .'">'. $batch->name .' - '. $c .'</option>';
+				}
+
+		$result .=	'</select>
+					</p>
+				<input type="hidden" name="token" value='. Token::generate() .'>
+				<p><button class="btn btn-blue btn-lg">Update Module</button></p>
+			</form>
+		';
+
+		$result .= '</div>';
+
+		return $result;
+	}
+
+	public function moduleDelete($id) {
+		if ($this->db->delete('module', ['id', '=', $id])) {
+			Session::flash('home', 'Module deleted successfully!');
+			Redirect::to('dashboard.php?module=view');
+		} else {
+			Session::flash('error', 'Something went Wrong!');
+			Redirect::to('dashboard.php?module=view');
 		}
 	}
 
