@@ -5,19 +5,19 @@
 			<tbody>
 				<tr>
 					<td>Students</td>
-					<td>454</td>
+					<td><?php echo $db->get('users', ['role', '=', 1])->count(); ?></td>
 				</tr>
 				<tr>
 					<td>Teachers</td>
-					<td>454</td>
+					<td><?php echo $db->get('users', ['role', '=', 3])->count(); ?></td>
 				</tr>
 				<tr>
 					<td>Coursers</td>
-					<td>454</td>
+					<td><?php echo $db->query("SELECT * FROM course")->count(); ?></td>
 				</tr>
 				<tr>
 					<td>Modules</td>
-					<td>454</td>
+					<td><?php echo $db->query("SELECT * FROM module")->count(); ?></td>
 				</tr>
 			</tbody>
 		</table>
