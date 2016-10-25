@@ -61,7 +61,7 @@ require_once 'core/init.php';
                     <a href="#"><i class="fa fa-user" aria-hidden="true"></i></a>
                   </li>
 
-                  <?php if ($user->hasPermission('admin')): ?>
+                  <?php if( ($user->hasPermission('admin')) || ($user->hasPermission('teacher')) ): ?>
                     <li class="right">
                       <a href="dashboard.php"><i class="fa fa-cog" aria-hidden="true"></i>
                         ADMIN
