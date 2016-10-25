@@ -38,6 +38,14 @@
 				require_once 'admin/course.php';
 			} else if (((isset($_GET['course'])) && isset($_GET['id']) && ($_GET['course']=='edit'))) {
 				require_once 'admin/course.php';
+			} elseif ((isset($_GET['batch'])) && ($_GET['batch']=='view')) {
+				require_once 'admin/batch.php';
+			} else if ((isset($_GET['batch'])) && ($_GET['batch']=='add')) {
+				require_once 'admin/batch.php';
+			} else if (((isset($_GET['batch'])) && isset($_GET['id']) && ($_GET['batch']=='delete'))) {
+				require_once 'admin/batch.php';
+			} else if (((isset($_GET['batch'])) && isset($_GET['id']) && ($_GET['batch']=='edit'))) {
+				require_once 'admin/batch.php';
 			}
 			elseif ((isset($_GET['batch'])) && ($_GET['batch']=='view')) {
 				require_once 'admin/batch.php';
