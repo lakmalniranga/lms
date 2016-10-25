@@ -35,7 +35,7 @@ h4 > a:hover {
     background-color: #FFFFFF;
     width: 100%;
     margin: 15px auto;
-    max-width : 1300px; 
+    max-width : 1300px;
     box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.1);
 }
 
@@ -111,7 +111,7 @@ h4 > a:hover {
 
 /* Grid System */
 
-.row, 
+.row,
 .column {
     box-sizing: border-box;
 }
@@ -231,22 +231,22 @@ h4 > a:hover {
 }
 
 @media only screen and (max-width: 550px) {
-    .column-1, 
-    .column-2, 
-    .column-3, 
-    .column-4, 
-    .column-5, 
-    .column-6, 
-    .column-7, 
-    .column-8, 
-    .column-9, 
-    .column-10, 
-    .column-11, 
+    .column-1,
+    .column-2,
+    .column-3,
+    .column-4,
+    .column-5,
+    .column-6,
+    .column-7,
+    .column-8,
+    .column-9,
+    .column-10,
+    .column-11,
     .column-12 {
         float: none;
         width: auto;
     }
-  
+
     .column + .column {
         margin-left: 0;
     }
@@ -280,22 +280,22 @@ h4 > a:hover {
 
 /* CUSTOM STYLES */
 
-hr.custom-hr { 
-  height: 30px; 
-  border-style: solid; 
-  border-color: #8c8b8b; 
-  border-width: 1px 0 0 0; 
-  border-radius: 20px; 
-} 
-hr.custom-hr:before { 
-  display: block; 
-  content: ""; 
-  height: 30px; 
-  margin-top: -31px; 
-  border-style: solid; 
-  border-color: #8c8b8b; 
-  border-width: 0 0 1px 0; 
-  border-radius: 20px; 
+hr.custom-hr {
+  height: 30px;
+  border-style: solid;
+  border-color: #8c8b8b;
+  border-width: 1px 0 0 0;
+  border-radius: 20px;
+}
+hr.custom-hr:before {
+  display: block;
+  content: "";
+  height: 30px;
+  margin-top: -31px;
+  border-style: solid;
+  border-color: #8c8b8b;
+  border-width: 0 0 1px 0;
+  border-radius: 20px;
 }
 
 .text-center{
@@ -676,3 +676,58 @@ h2.group-title {
 }
 
 /* END MEDIA QUERIES */
+
+/*start profile css*/
+#ProfilePage
+{
+    margin: 50px auto;
+    width: 635px;
+    border: 1px solid red;
+}
+
+#LeftCol
+{
+    float: left;
+    width: 200px;
+    text-align: center;
+    margin-right: 20px;
+    border: 1px solid brown;
+}
+
+#Photo
+{
+    width: 200px;
+    height: 200px;
+    border: 1px solid green;
+}
+
+#PhotoOptions
+{
+    text-align: center;
+    width: 200px;
+    border: 1px solid brown;
+}
+
+#Info
+{
+    width: 400px;
+    text-align: center;
+    float: right;
+    border: 1px solid blue;
+}
+
+#Info strong
+{
+    display: inline-block;
+    width: 100px;
+    border: 1px solid orange;
+}
+
+#Info span
+{
+    display: inline-block;
+    width: 250px;
+    border: 1px solid purple;
+}
+
+/*end of the profile css*/

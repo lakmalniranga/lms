@@ -17,11 +17,11 @@ require_once 'core/init.php';
 
   <title>LMS</title>
   <meta name="Learning Management System">
-  <meta name="author" content="NSBM 16.1 Group 01"> 
+  <meta name="author" content="NSBM 16.1 Group 01">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
-  
+
   <link rel="stylesheet" href="<?php echo ROOT . "assets/css/style.css"; ?>">
 
   <!--[if lt IE 9]>
@@ -30,7 +30,7 @@ require_once 'core/init.php';
 </head>
 <body>
   <div class="container">
-  
+
       <header>
         <div class="row">
           <div class="column column-8">
@@ -38,11 +38,11 @@ require_once 'core/init.php';
           </div>
 
           <div class="column column-4">
-            
+
           </div>
         </div>
-        
-        <div class="row">    
+
+        <div class="row">
           <nav class="column column-12 navbar">
             <ul>
               <li><a href="index.php">Home</a></li>
@@ -52,7 +52,7 @@ require_once 'core/init.php';
 
               <?php if ($user->isLoggedIn()) : ?>
                 <li class="right"><a href="logout.php">Logout</a></li>
-                <li class="right"><a href="#">My Profile</a></li>
+                <li class="right"><a href="profile.php">My Profile</a></li>
               <?php else : ?>
                 <li class="right"><a href="login.php">Login</a></li>
               <?php endif; ?>
@@ -62,6 +62,3 @@ require_once 'core/init.php';
         </div>
 
       </header>
-      
-
-      

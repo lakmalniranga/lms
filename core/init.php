@@ -6,7 +6,7 @@ ob_start();
 ini_set('display_errors', 'On');
 
 // SET THE FOLDER AS ROOT PATH
-define('PATH', '');
+define('PATH', 'lms');
 
 if (PATH == '') {
   define('ROOT', "http://$_SERVER[HTTP_HOST]/");
@@ -21,7 +21,7 @@ $GLOBALS['config'] = array(
     'mysql'     => array(
       'host'      => '127.0.0.1',
       'username'  => 'root',
-      'password'  => '1210ls',
+      'password'  => '',
       'db'        => 'lms'
     ),
 
