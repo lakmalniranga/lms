@@ -3,7 +3,7 @@ session_start();
 ob_start();
 
 // debug mode | default : Off
-ini_set('display_errors', 'On');
+ini_set('display_errors', 'Off');
 
 // SET THE FOLDER AS ROOT PATH
 define('PATH', '');
@@ -21,8 +21,8 @@ $GLOBALS['config'] = array(
     'mysql'     => array(
       'host'      => '127.0.0.1',
       'username'  => 'root',
-      'password'  => '',
-      'db'        => 'lms'
+      'password'  => '1210ls',
+      'db'        => 'lms4'
     ),
 
     /**
