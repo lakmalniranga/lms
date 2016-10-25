@@ -48,6 +48,7 @@ if (Input::exists()) {
 					'email' => Input::get('email'),
 					'mobile' => Input::get('mobile'),
 					'joined' => date('Y-m-d H:i:s'),
+          'faculty_id'  => Input::get('faculty'),
 					'role' => 1
 				));
 
@@ -100,6 +101,17 @@ if (Input::exists()) {
               <label for="password">Password</label>
               <input class="text-input" type="password" id="password" name="password" placeholder="Enter Password">
             </p>
+            
+            <p>
+              <label for="faculty">Faculty</label>
+              <?php $faculty = $db->query("SELECT * FROM faculty")->results(); ?>
+              <select name="faculty" id="faculty">
+                <?php foreach ($faculty as $f) : ?>
+                  <option value="<?php echo $f->id; ?>"><?php echo $f->name; ?></option>
+                <?php endforeach; ?>
+              </select>
+            </p>
+
               <input type="hidden" name="token" value="<?php echo Token::generate(); ?>">
             <p>
               <button class="btn btn-md btn-blue" type="submit">Register</button>

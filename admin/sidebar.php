@@ -14,6 +14,7 @@
 		<li><img src="<?php echo ROOT . 'assets/images/menu-icon.png'; ?>"><a href="dashboard.php?course=view">Course</a></li>
 		<li><img src="<?php echo ROOT . 'assets/images/menu-icon.png'; ?>"><a href="dashboard.php?batch=view">Batch</a></li>
 		<li><img src="<?php echo ROOT . 'assets/images/menu-icon.png'; ?>"><a href="dashboard.php?module=view">Module</a></li>
+		<li><img src="<?php echo ROOT . 'assets/images/menu-icon.png'; ?>"><a href="dashboard.php?sub_module=view">Sub Module</a></li>
 	</ul>
 </aside>
 

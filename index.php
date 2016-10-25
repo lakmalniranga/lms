@@ -1,40 +1,26 @@
-<?php require_once 'student/header.php'; ?>
+<?php require_once 'student/header.php'; 
+$faculty = $db->query("SELECT * FROM faculty")->results();
+$i = 1;
+?>
 
 <?php if ($user->isLoggedIn()) : ?>
 <div class="column column-8 offset-2 main text-center">
- <h2 class="group-title blue-b">Course</h2>
- <section class="main border-ash">
-   <h4 class="group-title ash-b">School of computing <span class="toggle-icon"><img data-id="1" id="toggle-icon" src="<?php echo ROOT . "assets/images/toggle-plus.png"; ?>"></span></h4>
-   <div class="group-content">
-     <h4><a href="category.php">Plymouth Newtorking</a></h4>
-     <h4><a href="">Plymouth Software Enginering</a></h4>
-     <h4><a href="">Plymouth Computer Security</a></h4>
-     <h4><a href="">Managment Informatoion Technology BSC hons</a></h4>
-     <h4><a href="">Computer Seience</a></h4>
-   </div>
- </section>
+  <h2 class="group-title blue-b">Course</h2>
+  <?php foreach ($faculty as $f) : ?>
+    <section class="main border-ash">
+     <h4 class="group-title ash-b"><?php echo $f->name; ?><span class="toggle-icon"><img data-id="<?php echo $i; ?>" id="toggle-icon" src="<?php echo ROOT . "assets/images/toggle-plus.png"; ?>"></span></h4>
+     <div class="group-content">
+        <?php 
+        $course = $db->get('course', ['faculty_id', '=', $f->id])->results();
+        foreach ($course as $c) : ?>
+       <h4><a href="category.php?id=<?php echo $c->id ?>"><?php echo $c->name ?></a></h4>
+     <?php endforeach; ?>
+     </div>
+   </section>
+  <?php $i++; ?>
+  <?php endforeach; ?>
 
- <section class="main border-ash">
-   <h4 class="group-title ash-b">School of Managment <span class="toggle-icon"><img data-id="2" id="toggle-icon" src="<?php echo ROOT . "assets/images/toggle-plus.png"; ?>"></span></h4>
-   <div class="group-content">
-     <h4><a href="">Plymouth Newtorking</a></h4>
-     <h4><a href="">Plymouth Software Enginering</a></h4>
-     <h4><a href="">Plymouth Computer Security</a></h4>
-     <h4><a href="">Managment Informatoion Technology BSC hons</a></h4>
-     <h4><a href="">Computer Seience</a></h4>
-   </div>
- </section>
 
- <section class="main border-ash">
-   <h4 class="group-title ash-b">School of Enginering <span class="toggle-icon"><img data-id="3" id="toggle-icon" src="<?php echo ROOT . "assets/images/toggle-plus.png"; ?>"></span></h4>
-   <div class="group-content">
-     <h4><a href="">Plymouth Newtorking</a></h4>
-     <h4><a href="">Plymouth Software Enginering</a></h4>
-     <h4><a href="">Plymouth Computer Security</a></h4>
-     <h4><a href="">Managment Informatoion Technology BSC hons</a></h4>
-     <h4><a href="">Computer Seience</a></h4>
-   </div>
- </section>
 </div>
 <?php endif; ?>
 
