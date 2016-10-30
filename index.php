@@ -8,7 +8,7 @@ $i = 1;
   <h2 class="group-title blue-b">Course</h2>
   <?php foreach ($faculty as $f) : ?>
     <section class="main border-ash">
-     <h4 class="group-title ash-b"><?php echo $f->name; ?><span class="toggle-icon"><img data-id="<?php echo $i; ?>" id="toggle-icon" src="<?php echo ROOT . "assets/images/toggle-plus.png"; ?>"></span></h4>
+     <h4 class="group-title ash-b"><?php echo $f->name; ?><span class="toggle-icon"><img data-id="<?php echo $i; ?>" id="toggle-icon" alt="toggle-icon" src="<?php echo ROOT . "assets/images/toggle-plus.png"; ?>"></span></h4>
      <div class="group-content">
         <?php 
         $course = $db->get('course', ['faculty_id', '=', $f->id])->results();

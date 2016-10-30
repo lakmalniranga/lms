@@ -25,7 +25,7 @@ $GLOBALS['config'] = array(
       'host'      => '127.0.0.1',
       'username'  => 'root',
       'password'  => '',
-      'db'        => 'lms'
+      'db'        => 'lms2'
     ),
 
     /**

@@ -763,10 +763,12 @@ class Controller {
 				if (!$validation->passed()) {
 					$errors = $this->showErrors($validation->errors());
 				} else {
+					$extensions = ['jpg', 'jpeg', 'doc', 'docx', 'pdf', 'png', 'xlsx', 'pptx', 'xlsm', 'ppt'];
+					$mimeTypes = ['image/jpeg', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'application/pdf', 'image/png', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', 'application/vnd.ms-excel.sheet.macroEnabled.12', 'application/vnd.ms-powerpointtd>', 'application/vnd.openxmlformats-officedocument.presentationml.presentation', 'application/octet-stream'];
 					if((!empty($_FILES["file"])) && ($_FILES['file']['error'] == 0)) {
 						$filename = basename($_FILES['file']['name']);
 						$ext = substr($filename, strrpos($filename, '.') + 1);
-						if (($ext == "jpg") && ($_FILES["file"]["type"] == "image/jpeg")) {
+						if (in_array($ext, $extensions) && in_array($_FILES["file"]["type"], $mimeTypes)) {
 							$name = escape(Input::get('name'));
 							$description = escape(Input::get('description'));
 							$module = (int) Input::get('module');
@@ -789,6 +791,7 @@ class Controller {
 							}
 						} else {
 							$validate->addError('Upload file error');
+							$errors = $this->showErrors($validation->errors());
 						}
 					}
 					

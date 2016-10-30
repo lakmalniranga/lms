@@ -10,13 +10,12 @@ include_once( dirname(dirname(__FILE__)) .'/classes/Config.php');
 require_once 'core/init.php';
 
 ?>
-
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
 
-  <title>LMS</title>
-  <meta name="Learning Management System">
+<title>LMS</title>
   <meta name="author" content="NSBM 16.1 Group 01">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 

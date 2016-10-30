@@ -352,13 +352,7 @@ hr.custom-hr:before {
     text-align: center;
     white-space: nowrap;
     vertical-align: middle;
-    -ms-touch-action: manipulation;
-    touch-action: manipulation;
     cursor: pointer;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
     border: 1px solid transparent;
     border-radius: 2px;
 }
@@ -721,7 +715,7 @@ h2.group-title {
 
 .footer {
     border-top: 1px solid rgba(0,0,0,.1);
-    padding: 0px 25px;
+    padding: 0px 25px 20px 25px;
 }
 
 .footer p {
@@ -795,60 +789,3 @@ td a i {
 }
 
 /* END MEDIA QUERIES */
-
-/*start profile css*/
-#ProfilePage
-.profile {
-  margin-bottom: 25px;
-}
-
-{
-    width: 635px;
-}
-
-#LeftCol
-{
-    float: left;
-    width: 200px;
-    text-align: center;
-    margin-right: 20px;
-    border: 1px solid brown;
-}
-
-#Photo
-{
-    width: 200px;
-    height: 200px;
-    border: 1px solid green;
-}
-
-#PhotoOptions
-{
-    text-align: center;
-    width: 200px;
-    border: 1px solid brown;
-}
-
-#Info
-{
-    width: 400px;
-    text-align: center;
-    float: right;
-    border: 1px solid blue;
-}
-
-#Info strong
-{
-    display: inline-block;
-    width: 100px;
-    border: 1px solid orange;
-}
-
-#Info span
-{
-    display: inline-block;
-    width: 250px;
-    border: 1px solid purple;
-}
-
-/*end of the profile css*/

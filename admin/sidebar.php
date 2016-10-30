@@ -25,14 +25,14 @@
 	<h3 class="group-title blue-b">Configurations</h3>
 	<ul class="main-menu">
 		<li><img src="<?php echo ROOT . 'assets/images/menu-icon.png'; ?>"><a href="dashboard.php?notice=view">Notice</a></li>
-		<li><img src="<?php echo ROOT . 'assets/images/menu-icon.png'; ?>"><a href="#">Backup</a></li>
-		<li><img src="<?php echo ROOT . 'assets/images/menu-icon.png'; ?>"><a href="#">Template</a></li>
+<!-- 		<li><img src="<?php echo ROOT . 'assets/images/menu-icon.png'; ?>"><a href="#">Backup</a></li>
+		<li><img src="<?php echo ROOT . 'assets/images/menu-icon.png'; ?>"><a href="#">Template</a></li> -->
 	</ul>
 </aside>
 
-<aside class="sidebar">
+<!-- <aside class="sidebar">
 	<ul class="main-menu">
 		<li><img src="<?php echo ROOT . 'assets/images/menu-icon.png'; ?>"><a href="#">Email</a></li>
 	</ul>
-</aside>
+</aside> -->
 <?php endif; ?>

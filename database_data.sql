@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.3deb1
--- https://www.phpmyadmin.net/
+-- version 4.5.1
+-- http://www.phpmyadmin.net
 --
--- Host: localhost
--- Generation Time: Oct 25, 2016 at 12:05 PM
--- Server version: 5.6.27-2
--- PHP Version: 5.6.22-2
+-- Host: 127.0.0.1
+-- Generation Time: Oct 30, 2016 at 06:37 PM
+-- Server version: 10.1.10-MariaDB
+-- PHP Version: 5.6.19
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `lms`
+-- Database: `lms2`
 --
 
 -- --------------------------------------------------------
@@ -39,7 +39,23 @@ CREATE TABLE `batch` (
 
 INSERT INTO `batch` (`id`, `course_id`, `name`, `start_date`) VALUES
 (7, 1, 'Year 1 ', '2016-10-25 08:30:16'),
-(8, 2, 'Year 1', '2016-10-25 08:31:00');
+(9, 1, 'Year 2 ', '2016-10-25 17:28:37'),
+(10, 1, 'Year 3', '2016-10-25 17:29:17'),
+(11, 2, 'Year 1', '2016-10-25 17:29:29'),
+(12, 2, 'Year 2', '2016-10-25 17:29:41'),
+(13, 2, 'Year 3', '2016-10-25 17:29:52'),
+(14, 4, 'Year 1', '2016-10-25 17:30:05'),
+(15, 4, 'Year 2', '2016-10-25 17:30:17'),
+(16, 4, 'Year 3', '2016-10-25 17:30:28'),
+(17, 5, 'Year 1', '2016-10-25 17:30:41'),
+(18, 5, 'Year 2', '2016-10-25 17:30:56'),
+(19, 5, 'Year 3', '2016-10-25 17:31:18'),
+(20, 6, 'Year 1', '2016-10-25 17:31:33'),
+(21, 6, 'Year 2', '2016-10-25 17:31:46'),
+(22, 6, 'Year 3', '2016-10-25 17:31:57'),
+(23, 1, 'Year 1', '2016-10-25 17:32:09'),
+(24, 7, 'Year 2', '2016-10-25 17:32:22'),
+(25, 7, 'Year 3', '2016-10-25 17:32:34');
 
 -- --------------------------------------------------------
 
@@ -60,7 +76,11 @@ CREATE TABLE `course` (
 
 INSERT INTO `course` (`id`, `faculty_id`, `name`, `date`) VALUES
 (1, 1, 'Plymouth Newtorking', '2016-10-25 02:45:51'),
-(2, 2, 'Managment Informatoion Technology BSC hons', '2016-10-25 02:46:18');
+(2, 2, 'Managment Informatoion Technology BSC hons', '2016-10-25 02:46:18'),
+(4, 1, 'Computer Security', '2016-10-25 17:26:33'),
+(5, 4, 'Civil Engineering', '2016-10-25 17:26:49'),
+(6, 2, 'Hospitality', '2016-10-25 17:27:30'),
+(7, 4, 'Electronic Engineering', '2016-10-25 17:27:50');
 
 -- --------------------------------------------------------
 
@@ -105,7 +125,8 @@ CREATE TABLE `module` (
 --
 
 INSERT INTO `module` (`id`, `module_code`, `course_id`, `batch_id`, `name`, `publish`, `public`, `date`) VALUES
-(4, '', 2, 7, 'Database Design', 1, 0, '2016-10-25 09:13:43');
+(4, '', 2, 7, 'Database Design', 1, 0, '2016-10-25 09:13:43'),
+(6, '', 4, 14, 'Professional Development', 1, 0, '2016-10-30 22:52:07');
 
 -- --------------------------------------------------------
 
@@ -171,7 +192,9 @@ CREATE TABLE `sub_module` (
 --
 
 INSERT INTO `sub_module` (`id`, `module_id`, `name`, `description`, `file`, `publish`, `public`, `date`) VALUES
-(1, 4, 'Test Module ', 'This is a Test Module', '580ee28c76b00_rsz_me.jpg', 1, 1, '2016-10-25 10:02:30');
+(1, 4, 'Test Module ', 'This is a Test Module', '580ee28c76b00_rsz_me.jpg', 1, 1, '2016-10-25 10:02:30'),
+(4, 6, 'Introduction to Information System', 'An information system (IS) is any organized system for the collection, organization, storage and communication of information. More specifically, it is the study of complementary networks that people and organizations use to collect, filter, process, create and distribute data.', '58162d167733c_Lesson_1_-_Introduction_to_Information_Systems.pdf', 1, 1, '2016-10-30 22:55:42'),
+(5, 6, 'Academic Writing and Reading', 'Academic Reading Strategies. Completing reading assignments is one of the biggest challenges in academia.', '58162e8c1ebbd_Academic_Writing_and_Reading.pptx', 1, 1, '2016-10-30 23:01:56');
 
 -- --------------------------------------------------------
 
@@ -186,7 +209,7 @@ CREATE TABLE `users` (
   `salt` varchar(32) NOT NULL,
   `name` varchar(100) NOT NULL,
   `email` varchar(60) NOT NULL,
-  `mobile` int(15) DEFAULT NULL,
+  `mobile` varchar(15) DEFAULT NULL,
   `faculty_id` int(11) NOT NULL,
   `joined` datetime NOT NULL,
   `role` int(11) NOT NULL
@@ -197,13 +220,13 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `password`, `salt`, `name`, `email`, `mobile`, `faculty_id`, `joined`, `role`) VALUES
-(6, 'admin', 'ca93ed2df2ad82f39de74eaa681dc61c2e46b2f42eacde9092e955f98035364d', '‰í{£Î–Èá•ÈdiËq!»rÿú¡U¹q]•Þ.', 'lakmal nirangana', 'lakmal@lakma.com', 0, 0, '2016-10-11 22:44:00', 2),
-(7, 'kavindya', 'c646a97311b8c5a6c1489df6fc0f11f8839c22d2638d23ceed1e8da2d4efc2c2', 'Šñ%›OóQ!H›Šy±}Å|~H.žDÌÝßqº', 'lakmal', 'nirangana@gmail.com', 0, 0, '2016-10-11 22:48:13', 2),
-(8, 'absjkas', '6c159ac061831f4ca2a5eabf5b5ec5a98fb12f52aad44f9acb1d4811a964cfdd', '¢	•ô,:èn´ \ZƒZ|·cê‘HÄÅ#—1„©K‰', 'gacajk', 'chandani@ga.com', 0, 0, '2016-10-11 22:55:39', 2),
-(9, 'testuser', 'b528fdfbde3fa0c12a8cd122318c7cd444acdeb950e15fd17596119c68ea7f69', 'nR	Ò±ðÒZ\'à£¿YƒF™ëé‰ºÐ ¬A³äXb', 'testuser', 'test@tes.com', 0, 0, '2016-10-12 10:04:23', 2),
-(10, '123456', '331832ff83fc4fae358978d57d12a46bd962755ba0574490f25ea1332333b9a8', 'îo5nz\Zê.´‹àÚkk¹¸5>ÿ‰ÝÜNÐOeÖ', '123456123456', '123123@123.com', 0, 0, '2016-10-12 10:09:47', 3),
-(11, 'lakmal', 'cae0b434fbb49ecf11320a03c0f17b20d675f7f523e0c4d0379a22c8412a85a5', 'ã.le%žØ9‘`–æb	äÔåI°\n‚´ŸºY2CY}', 'lakmal', 'lakmal@lakmal.com', 0, 0, '2016-10-14 11:40:11', 3),
-(12, 'student', '88e84ee9e14711b98163d44f7e74c627eae10a3c2e3af30a77739843ccd83206', 'ê&©_vN–˜·\nçâù^á°©_[Æ¨`cf:E', 'lakmal', 'lakmal@lakmal.com', 0, 0, '2016-10-24 12:09:45', 1);
+(6, 'admin', 'ca93ed2df2ad82f39de74eaa681dc61c2e46b2f42eacde9092e955f98035364d', '‰í{£Î–Èá•ÈdiËq!»rÿú¡U¹q]•Þ.', 'lakmal nirangana', 'lakmal@lakma.com', '0', 0, '2016-10-11 22:44:00', 2),
+(7, 'kavindya', 'c646a97311b8c5a6c1489df6fc0f11f8839c22d2638d23ceed1e8da2d4efc2c2', 'Šñ%›OóQ!H›Šy±}Å|~H.žDÌÝßqº', 'lakmal', 'nirangana@gmail.com', '0', 0, '2016-10-11 22:48:13', 2),
+(8, 'absjkas', '6c159ac061831f4ca2a5eabf5b5ec5a98fb12f52aad44f9acb1d4811a964cfdd', '¢ •ô,:èn´ \ZƒZ|·cê‘HÄÅ#—1„©K‰', 'gacajk', 'chandani@ga.com', '0', 0, '2016-10-11 22:55:39', 2),
+(9, 'testuser', 'b528fdfbde3fa0c12a8cd122318c7cd444acdeb950e15fd17596119c68ea7f69', 'nR  Ò±ðÒZ''à£¿YƒF™ëé‰ºÐ ¬A³äXb', 'testuser', 'test@tes.com', '0', 0, '2016-10-12 10:04:23', 2),
+(10, '123456', '331832ff83fc4fae358978d57d12a46bd962755ba0574490f25ea1332333b9a8', 'îo5nz\Zê.´‹àÚkk¹¸5>ÿ‰ÝÜNÐOeÖ', '123456123456', '123123@123.com', '0', 0, '2016-10-12 10:09:47', 3),
+(11, 'lakmal', 'cae0b434fbb49ecf11320a03c0f17b20d675f7f523e0c4d0379a22c8412a85a5', 'ã.le%žØ9‘`–æb äÔåI°\n‚´ŸºY2CY}', 'lakmal', 'lakmal@lakmal.com', '0', 0, '2016-10-14 11:40:11', 3),
+(12, 'student', '88e84ee9e14711b98163d44f7e74c627eae10a3c2e3af30a77739843ccd83206', 'ê&©_vN–˜·\nçâù^á°©_[Æ¨`cf:E', 'lakmal', 'lakmal@lakmal.com', '0', 0, '2016-10-24 12:09:45', 1);
 
 -- --------------------------------------------------------
 
@@ -290,12 +313,12 @@ ALTER TABLE `user_session`
 -- AUTO_INCREMENT for table `batch`
 --
 ALTER TABLE `batch`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 --
 -- AUTO_INCREMENT for table `course`
 --
 ALTER TABLE `course`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `faculty`
 --
@@ -305,7 +328,7 @@ ALTER TABLE `faculty`
 -- AUTO_INCREMENT for table `module`
 --
 ALTER TABLE `module`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `notice`
 --
@@ -320,7 +343,7 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT for table `sub_module`
 --
 ALTER TABLE `sub_module`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `users`
 --
