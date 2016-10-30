@@ -9,7 +9,7 @@ ini_set('display_errors', 'Off');
 // EX : if http://localhost/lms
 // define('PATH', 'lms');
 
-define('PATH', '');
+define('PATH', 'lms');
 
 if (PATH == '') {
   define('ROOT', "http://$_SERVER[HTTP_HOST]/");
